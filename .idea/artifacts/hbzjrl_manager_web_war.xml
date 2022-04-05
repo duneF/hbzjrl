@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="hbzjrl-manager-web:war">
+    <output-path>$PROJECT_DIR$/hbzjrl-manager-web/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>hbzjrl-manager-web</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="hbzjrl-manager-web-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="hbzjrl-manager-web:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl.iml" filepath="$PROJECT_DIR$/hbzjrl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-common/hbzjrl-common.iml" filepath="$PROJECT_DIR$/hbzjrl-common/hbzjrl-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager.iml" filepath="$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-mapper/hbzjrl-manager-mapper.iml" filepath="$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-mapper/hbzjrl-manager-mapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-pojo/hbzjrl-manager-pojo.iml" filepath="$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-pojo/hbzjrl-manager-pojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-service/hbzjrl-manager-service.iml" filepath="$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-service/hbzjrl-manager-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager-web/hbzjrl-manager-web.iml" filepath="$PROJECT_DIR$/hbzjrl-manager-web/hbzjrl-manager-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-parent/hbzjrl-parent.iml" filepath="$PROJECT_DIR$/hbzjrl-parent/hbzjrl-parent.iml" />
+    </modules>
+  </component>
+</project>
