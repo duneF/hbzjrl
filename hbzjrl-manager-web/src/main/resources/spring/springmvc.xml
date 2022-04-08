@@ -5,17 +5,26 @@
        xmlns:context="http://www.springframework.org/schema/context"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
-
+    <!-- 注解驱动 -->
     <mvc:annotation-driven/>
-    <!--    开启扫描注解-->
-    <context:component-scan base-package="com.hbzjrl.controller"/>
+
+    <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+
+    <!-- 配置MultipartResolver 图片上传-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 配置文件上传的最大值 50M-->
+        <property name="maxUploadSize" value="50000000"></property>
+    </bean>
+    <!--    开启扫描注解-->
+    <context:component-scan base-package="com.hbzjrl.controller"/>
     <!--    资源映射-->
-    <mvc:resources  location="/WEB-INF/css" mapping="*/css/**" />
-    <mvc:resources  location="/WEB-INF/js" mapping="*/js/**" />
+    <mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
+    <mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
+    <mvc:resources location="/WEB-INF/jsp/" mapping="/jsp/**"/>
 
 
 </beans>
