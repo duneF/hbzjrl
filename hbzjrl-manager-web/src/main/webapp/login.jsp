@@ -4,8 +4,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title>张杰人力管理系统</title>
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/login.css"/>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="css/login.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
@@ -42,6 +42,7 @@
                             </div>
                         </div>
                     </div>
+
                     <!-- 用户类型选择 -->
                     <div class="radio-group">
                         <input type="radio" name="radioname" id="radioname1" value="员工" checked="checked">员工&nbsp;
@@ -65,6 +66,7 @@
         </div>
     </div>
 </div>
+
 </body>
 <!--完整显示-->
 <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
