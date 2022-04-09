@@ -9,6 +9,7 @@
         <module name="hbzjrl-manager-pojo" />
         <module name="hbzjrl-manager-service" />
         <module name="hbzjrl-manager-web" />
+        <module name="hbzjrl-sso" />
         <module name="hbzjrl-manager-mapper" />
         <module name="hbzjrl-common" />
       </profile>
@@ -21,6 +22,7 @@
       <module name="hbzjrl-manager-service" target="17" />
       <module name="hbzjrl-manager-web" target="1.7" />
       <module name="hbzjrl-parent" target="1.7" />
+      <module name="hbzjrl-sso" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-service/hbzjrl-manager-service.iml" filepath="$PROJECT_DIR$/hbzjrl-manager/hbzjrl-manager-service/hbzjrl-manager-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/hbzjrl-manager-web/hbzjrl-manager-web.iml" filepath="$PROJECT_DIR$/hbzjrl-manager-web/hbzjrl-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/hbzjrl-parent/hbzjrl-parent.iml" filepath="$PROJECT_DIR$/hbzjrl-parent/hbzjrl-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hbzjrl-sso/hbzjrl-sso.iml" filepath="$PROJECT_DIR$/hbzjrl-sso/hbzjrl-sso.iml" />
     </modules>
   </component>
 </project>

@@ -11,6 +11,7 @@
     <module>../hbzjrl-common</module>
     <module>../hbzjrl-manager</module>
       <module>../hbzjrl-manager-web</module>
+    <module>../hbzjrl-sso</module>
   </modules>
   <packaging>pom</packaging>
   <name>hbzjrl-parent</name>
@@ -34,6 +35,7 @@
   <mysql.version>8.0.28</mysql.version>
   <slf4j.version>2.0.0-alpha6</slf4j.version>
   <jackson.version>2.13.1</jackson.version>
+  <json.version>20220320</json.version>
   <druid.version>1.2.8</druid.version>
   <jstl-api.version>1.2</jstl-api.version>
   <servlet-api.version>2.5</servlet-api.version>
@@ -51,6 +53,10 @@
   <maven-project-info-plugin.version>3.2.2</maven-project-info-plugin.version>
   <dubbo.version>2.6.12</dubbo.version>
   <zookeeper.version>3.7.0</zookeeper.version>
+    <commons-pool2.version>2.11.1</commons-pool2.version>
+    <gson.version>2.9.0</gson.version>
+    <commons-httpclient>3.1</commons-httpclient>
+    <junit-jupiter-api>5.8.2</junit-jupiter-api>
 </properties>
         <!--    只定义依赖的版本,并不实际依赖-->
 <dependencyManagement>
@@ -84,17 +90,45 @@
     <artifactId>jackson-databind</artifactId>
     <version>${jackson.version}</version>
   </dependency>
+  <dependency>
+    <groupId>org.json</groupId>
+    <artifactId>json</artifactId>
+    <version>${json.version}</version>
+  </dependency>
+  <dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>${gson.version}</version>
+  </dependency>
   <!--httpclient-->
   <dependency>
     <groupId>org.apache.httpcomponents</groupId>
     <artifactId>httpclient</artifactId>
     <version>${httpclient.version}</version>
   </dependency>
+  <dependency>
+    <groupId>commons-httpclient</groupId>
+    <artifactId>commons-httpclient</artifactId>
+    <version>${commons-httpclient}</version>
+  </dependency>
   <!-- 单元测试-->
+<!--  junit4-->
   <dependency>
     <groupId>junit</groupId>
     <artifactId>junit</artifactId>
     <version>${junit.version}</version>
+    <scope>test</scope>
+  </dependency>
+<!--  junit5需要enginne-->
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-api</artifactId>
+    <version>${junit-jupiter-api}</version>
+  </dependency>
+  <dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>${junit-jupiter-api}</version>
     <scope>test</scope>
   </dependency>
   <!--日志处理-->
@@ -239,7 +273,12 @@
     <groupId>org.apache.zookeeper</groupId>
     <artifactId>zookeeper</artifactId>
     <version>${zookeeper.version}</version>
-
+  </dependency>
+  <!--        Hadoop连接池-->
+  <dependency>
+    <groupId>org.apache.commons</groupId>
+    <artifactId>commons-pool2</artifactId>
+    <version>${commons-pool2.version}</version>
   </dependency>
 
 </dependencies>
