@@ -55,17 +55,22 @@
   </filter-mapping>
 
   <display-name>Archetype Created Web Application</display-name>
+
+<!--  可以配置页面访问路径比如WEB-INF下面的login.jsp-->
   <welcome-file-list>
     <welcome-file>/index.html</welcome-file>
     <welcome-file>/index.htm</welcome-file>
-    <welcome-file>/WEB-INF/jsp/login.html</welcome-file>
+<!--    <welcome-file>/WEB-INF/jsp/login.html</welcome-file>-->
     <welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+    <welcome-file>/WEB-INF/jsp/login.jsp</welcome-file>
     <welcome-file>/login.html</welcome-file>
     <welcome-file>/login.jsp</welcome-file>
+    <welcome-file>/login.do</welcome-file>
     <welcome-file>/index.jsp</welcome-file>
     <welcome-file>/default.html</welcome-file>
     <welcome-file>/default.htm</welcome-file>
     <welcome-file>/default.jsp</welcome-file>
+
   </welcome-file-list>
 
 </web-app>

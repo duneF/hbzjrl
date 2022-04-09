@@ -13,6 +13,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/hbzjrl-parent/hbzjrl-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/hbzjrl-sso/pom.xml" />
         <option value="$PROJECT_DIR$/untitled/pom.xml" />
       </set>
     </option>

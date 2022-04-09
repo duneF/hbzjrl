@@ -9,7 +9,6 @@
         <module name="hbzjrl-manager-pojo" />
         <module name="hbzjrl-manager-service" />
         <module name="hbzjrl-manager-web" />
-        <module name="hbzjrl-sso" />
         <module name="hbzjrl-manager-mapper" />
         <module name="hbzjrl-common" />
       </profile>
