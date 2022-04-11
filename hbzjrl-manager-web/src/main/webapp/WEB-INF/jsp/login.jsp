@@ -1,8 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%--<%
+    /**
+     * 设置编码（放在jsp页面最顶部）
+     */
+    request.setCharacterEncoding("utf-8");
+    response.setCharacterEncoding("utf-8");
+    response.setContentType("text/html;charset=UTF-8");
+%>--%>
 
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<%--    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>--%>
     <title>张杰人力管理系统</title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/login.css"/>
@@ -18,15 +26,14 @@
         </div>
         <div class="login-content ">
             <div class="form">
-                <form id="modifyPassword" class="form-horizontal" action="" method="post">
+                <form id="formlogin" class="form-horizontal" action="/user/login" method="post">
                     <!-- 用户名输入 -->
                     <div class="form-group">
                         <div class="col-xs-10 col-xs-offset-1">
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-user"></span></span>
-                                <input type="text" id="username" name="username" class="form-control" placeholder="用户名"
-                                       value="20220331">
+                                <input type="text" id="loginname" name="username" class="form-control" placeholder="用户名">
                             </div>
                         </div>
                     </div>
@@ -37,8 +44,8 @@
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-lock"></span></span>
-                                <input type="password" id="password" name="password" class="form-control"
-                                       placeholder="密码" value="123456">
+                                <input type="password" id="nloginpwd" name="password" class="form-control"
+                                       placeholder="密码">
                             </div>
                         </div>
                     </div>
@@ -53,10 +60,10 @@
                     <!-- 登录重置按钮 -->
                     <div class="form-group form-actions">
                         <div class="col-xs-12 text-center">
-                            <button type="button" id="login" class="btn btn-sm btn-success">
+                            <button type="submit" id="login" class="btn btn-sm btn-success">
                                 <span class="fa fa-check-circle"></span>登录
                             </button>
-                            <button type="button" id="reset" class="btn btn-sm btn-danger">
+                            <button type="reset" id="reset" class="btn btn-sm btn-danger">
                                 <span class="fa fa-close"></span> 重置
                             </button>
                         </div>

@@ -6,30 +6,40 @@ package com.hbzjrl.pojo;
  *@Description:
  */
 public class UserDengLu {
-    private String userName;
-    private Integer passWord;
+    private String username;
+    private Integer password;
+    private String radioname;
 
-    public String getUserName() {
-        return userName;
+    public String getRadioname() {
+        return radioname;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setRadioname(String radioname) {
+        this.radioname = radioname;
     }
 
-    public Integer getPassWord() {
-        return passWord;
+    public String getUsername() {
+        return username;
     }
 
-    public void setPassWord(Integer passWord) {
-        this.passWord = passWord;
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Integer getPassword() {
+        return password;
+    }
+
+    public void setPassword(Integer password) {
+        this.password = password;
     }
 
     @Override
     public String toString() {
-        return "UserDengLU{" +
-                "userName='" + userName + '\'' +
-                ", passWord=" + passWord +
+        return "UserDengLu{" +
+                "username='" + username + '\'' +
+                ", password=" + password +
+                ", radioname='" + radioname + '\'' +
                 '}';
     }
 }
