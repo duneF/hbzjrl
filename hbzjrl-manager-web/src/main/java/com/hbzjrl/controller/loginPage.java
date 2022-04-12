@@ -11,13 +11,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import redis.clients.jedis.Response;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.Map;
 
 /***
  *@Author: Yc
@@ -37,22 +41,21 @@ public class loginPage {
 
     @RequestMapping(value = "/login")
     @ResponseBody
-    public HashMap<String, String> login(UserDengLu userDengLu) {
+    public HashMap<String, String> login(UserDengLu userDengLu,HttpServletResponse resp) throws IOException {
         ssot = new SSOT ();
         map = new HashMap<> ();
         username = userDengLu.getUsername();
         password = userDengLu.getPassword();
-        System.out.println("CtrollerAAAAAAA"+userDengLu.getUsername()+userDengLu.getPassword());
         map.put("username",username);
         map.put("password", password);
         userDengLu  = loginService.findUserByNameAndPasswd(map);
-        System.out.println("CtrollerBBBBBB"+userDengLu.toString());
+
         if (userDengLu!=null){
-            System.out.println("CtrollerCCCCCCC"+userDengLu.toString());
-            ssot.setStatus(200);
-            System.out.println("Ctrollerddd"+userDengLu.toString());
-            map.put("status","200");
-            map.put("redirect","/show");
+            map.put("redirect","/show/ygShowAll");
+            System.out.println("map准备重定向到findALlYg");
+            ModelAndView mv=new ModelAndView("redirect:/show/ygShowAll");
+            resp.sendRedirect("/show/ygShowAll");
+            return map;
         }
         map.put("msg","账号密码错误");
         return map;
