@@ -53,8 +53,7 @@ public class loginPage {
         if (userDengLu!=null){
             map.put("redirect","/show/ygShowAll");
             System.out.println("map准备重定向到findALlYg");
-            ModelAndView mv=new ModelAndView("redirect:/show/ygShowAll");
-            resp.sendRedirect("/show/ygShowAll");
+            resp.sendRedirect("/ygShowAll");
             return map;
         }
         map.put("msg","账号密码错误");
