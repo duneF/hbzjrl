@@ -103,6 +103,9 @@
           <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:4.1.59.Final" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-log4j12:1.7.30" />
           <element id="library" level="project" name="Maven: log4j:log4j:1.2.17" />
+          <element id="archive" name="hbzjrl-manager-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="hbzjrl-manager" />
+          </element>
         </element>
       </element>
       <element id="directory" name="META-INF">
