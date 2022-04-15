@@ -256,9 +256,9 @@
             <dependency>
                 <groupId>com.github.jsqlparser</groupId>
                 <artifactId>jsqlparser</artifactId>
-                <version>${jsqlparser.version}</version>
+                <version>${jsqlparser}</version>
             </dependency>
-            <!--freemarker模板-->
+<!--            freemarker模板-->
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
