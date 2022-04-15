@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hbzjrl.mapper.YgMapper">
+    <resultMap id="YgFindAll" type="com.hbzjrl.pojo.YgPojo">
+       <id column="user_id" property="user_id"/>
+        <result column="whereHome" property="whereHome"/>
+        <result column="name" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="sfNumber" property="sfNumber"/>
+        <result column="phone" property="phone"/>
+        <result column="goTime" property="goTime"/>
+        <result column="address" property="address"/>
+        <result column="factory" property="factory"/>
+        <result column="workTime" property="workTime"/>
+        <result column="byCar" property="byCar"/>
+        <result column="workerPrice" property="workerPrice"/>
+        <result column="workerCarPrice" property="workerCarPrice"/>
+        <result column="wokerRemarks" property="wokerRemarks"/>
+        <result column="whose" property="whose"/>
+        <result column="whosePrice" property="whosePrice"/>
+        <result column="whoseRemarks" property="whoseRemarks"/>
+        <result column="totalPrice" property="totalPrice"/>
+        <result column="createTime" property="createTime"/>
+        <result column="update" property="update"/>
+    </resultMap>
+<!--分页查询-->
+    <select id="findAllByYgTable" parameterType="map" resultMap="YgFindAll">
+        SELECT * FROM 2022Year ORDER  by user_id DESC limit #{pageNum},#{pageSize}
+    </select>
+<!--总页数-->
+    <select id="count" resultType="java.lang.Integer">
+        select count(user_id) from 2022Year;
+    </select>
+<!--查询单个-->
+    <select id="ygUpdateFindById" resultType="com.hbzjrl.pojo.YgPojo">
+        select * FROM 2022Year where user_id =#{tiQuId}
+    </select>
+</mapper>
