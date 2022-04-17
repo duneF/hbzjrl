@@ -1,7 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
 
+    alert( document.getElementById('user_id').value());
+</script>
 <!-- 模态框 -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
@@ -11,13 +14,16 @@
                 <!-- 模态框头部 -->
                 <div class="modal-header">
                     <h4 class="modal-title">user_id</h4>
+                    <input type="text" readonly class="form-control-plaintext text-danger" value="${user_id}" >
+
+                    </label>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 </thead>
                 <!-- 模态框内容 -->
                 <div class="modal-body">
                     <tr>
-                        <td> ID</td>
+                        <td> ID</td>${user_id}
                     </tr>
                     <tr>
                         <td> 渠道

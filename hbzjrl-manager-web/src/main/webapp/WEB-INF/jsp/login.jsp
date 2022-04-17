@@ -26,14 +26,14 @@
         </div>
         <div class="login-content ">
             <div class="form">
-                <form id="formlogin" class="form-horizontal" action="/user/login" method="post">
+                <form id="formlogin" class="form-horizontal was-validated" action="/user/login" method="post">
                     <!-- 用户名输入 -->
                     <div class="form-group">
                         <div class="col-xs-10 col-xs-offset-1">
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-user"></span></span>
-                                <input type="text" id="loginname" name="username" class="form-control" placeholder="用户名">
+                                <input type="text" id="loginname" name="username" class="form-control" placeholder="用户名" required>
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-lock"></span></span>
                                 <input type="password" id="nloginpwd" name="password" class="form-control"
-                                       placeholder="密码">
+                                       placeholder="密码" required>
                             </div>
                         </div>
                     </div>

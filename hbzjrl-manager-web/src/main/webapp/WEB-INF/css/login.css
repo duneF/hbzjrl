@@ -1,5 +1,6 @@
+/*
 .form{background: rgba(255,255,255,0.2);width:400px;margin:120px auto;}
-/*阴影*/
+!*阴影*!
 .fa{display: inline-block;top: 27px;left: 6px;position: relative;color: #ccc;}
 input[type="text"],input[type="password"]{padding-left:26px;}
 .checkbox{padding-left:21px;}
@@ -24,7 +25,9 @@ label
   font-weight: normal;
   line-height: 1;
   -moz-osx-font-smoothing: grayscale;
-} 
+}
+
+
 
 
 
@@ -50,14 +53,14 @@ label
             top: 50%;
 
             margin-top: -200px;
-            /*设置负值，为要定位子盒子的一半高度*/
+            !*设置负值，为要定位子盒子的一半高度*!
 
         }
 
         @media screen and (min-width: 500px) {
             .login-box {
                 left: 50%;
-                /*设置负值，为要定位子盒子的一半宽度*/
+                !*设置负值，为要定位子盒子的一半宽度*!
                 margin-left: -250px;
             }
         }
@@ -70,7 +73,7 @@ label
         }
 
         .login-content {
-        	/* background:url("../image/03.png") no-repeat center center; */
+        	!* background:url("../image/03.png") no-repeat center center; *!
             border-bottom-left-radius: 8px;
             border-bottom-right-radius: 8px;
             height: 250px;
@@ -136,4 +139,8 @@ label
         #login,#reset{
         	margin-left:10px;
         	margin-right:10px;
-        }
+        }*/
+.rowSameHeight {
+    white-space: nowrap;
+    overflow: hidden;
+}

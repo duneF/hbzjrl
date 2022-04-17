@@ -9,12 +9,23 @@
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+    <%--    <script src="/WEB-INF/css/login.css"></script>--%>
+    <script>
+        $("#myModal").modal("hide");
+
+        function Values(user_id) {
+            alert(user_id);
+        }
+
+
+    </script>
+
 
 </head>
 <body>
 <jsp:include page="LoginOutDiv.jsp" flush="true"/>
-<div class="table-responsive-sm">
-    <table class="table  table-hover table-striped table-bordered" id="ygList" title="员工列表">
+<div class="table-responsive-sm row row-same-height">
+    <table class="table  table-hover table-striped table-bordered text-nowrap col-sm " id="ygList" title="员工列表">
         <thead>
         <tr>
             <th data-options="field:'ck',checkbox:true"></th>
@@ -37,11 +48,11 @@
             <th>代理单价</th>
             <th>代理备注</th>
             <th>总价</th>
-            <th data-options="align:'center'">创建日期</th>
-            <th data-options="align:'center'">更新日期</th>
+            <%--            <th data-options="align:'center'">创建日期</th>--%>
+            <%--            <th data-options="align:'center'">更新日期</th>--%>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="font-monospace ">
         <c:forEach items="${ygList}" var="l">
             <tr>
                 <td><input type="checkbox" name="TiQuId" value="${l.user_id}"></td>
@@ -52,8 +63,8 @@
                 <td>${l.sex}</td>
                 <td>${l.sfNumber}</td>
                 <td>${l.phone}</td>
-                <td>${l.goTime}</td>
-                <td>${l.address}</td>
+                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.goTime}"/></td>
+                <td class="span1">${l.address}</td>
                 <td>${l.factory}</td>
                 <td>${l.workTime}</td>
                 <td>${l.byCar}</td>
@@ -64,17 +75,19 @@
                 <td>${l.whosePrice}</td>
                 <td>${l.whoseRemarks}</td>
                 <td>${l.totalPrice}</td>
-                <td>${l.createTime}</td>
-                <td>${l.update}</td>
+                    <%--                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.createTime}"/></td>--%>
+                    <%--                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.update}"/></td>--%>
                 <td>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal"
-                            onclick="Values('${l.user_id}')">
+                    <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
+                            data-bs-target="#myModal"
+                            onclick="upDateCF">
                         更改
                     </button>
+
                     <form action="/ygUpdateFindById" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
-                                <jsp:include page="/WEB-INF/page/updateTanWIn.jsp"></jsp:include>
+                                <jsp:include page="UpdateTan.jsp"></jsp:include>
                             </ul>
                         </div>
                     </form>
@@ -83,7 +96,7 @@
         </c:forEach>
         <tr style="height: 2px">
             <td colspan="22">
-                <form action="/ygShowAll" method="post">
+                <form form-horizontal action="/ygShowAll" method="post">
                     <div class="container mt-3">
                         <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
                             <jsp:include page="/WEB-INF/page/pages2.jsp"></jsp:include>
@@ -100,11 +113,6 @@
         $("[name='pageNum']").val(pageNum);
         $("form").submit();
     }
-/*    $("#myModal").modal("hide");
-    function Values(user_id){
-        $("#user_id").val(user_id);
-        $("#user_id").attr("user_id",user_id);
-    }*/
 </script>
 
 </body>

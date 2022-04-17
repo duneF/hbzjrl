@@ -66,8 +66,8 @@ public class YgShow {
     public  String ygUpdateFindById(Model model,Integer id){
         ygPojo= ygService.ygUpdateFindById(id);
         System.out.println(ygPojo.toString());
-
-        return "";
+        model.addAttribute(ygPojo);
+        return "UpdateTan";
     }
 
 

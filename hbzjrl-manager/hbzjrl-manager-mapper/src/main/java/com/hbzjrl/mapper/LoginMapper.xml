@@ -4,6 +4,6 @@
 
 <mapper namespace="com.hbzjrl.mapper.LoginMapper">
     <select id="findUserByNameAndPasswd" parameterType="map" resultType="com.hbzjrl.pojo.UserDengLu">
-        SELECT * FROM login_user WHERE  username=#{username} and password=#{password}
+        SELECT * FROM login_user WHERE  user_name=#{username} and password=#{password}
     </select>
 </mapper>
