@@ -14,7 +14,7 @@
                 <!-- 模态框头部 -->
                 <div class="modal-header">
                     <h4 class="modal-title">user_id</h4>
-                    <input type="text" readonly class="form-control-plaintext text-danger" value="${user_id}" >
+                    <input type="text" readonly class="form-control-plaintext text-danger" value="${ygPojo.name}" >
 
                     </label>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
@@ -23,7 +23,7 @@
                 <!-- 模态框内容 -->
                 <div class="modal-body">
                     <tr>
-                        <td> ID</td>${user_id}
+                        <td> ID</td>${ygPojo.user_id}
                     </tr>
                     <tr>
                         <td> 渠道

@@ -63,10 +63,13 @@ public class YgShow {
 
 
 @RequestMapping("/ygUpdateFindById")
-    public  String ygUpdateFindById(Model model,Integer id){
-        ygPojo= ygService.ygUpdateFindById(id);
+    public  String ygUpdateFindById(Model model,String id){
+    System.out.println("进入FIndById");
+    System.out.println(id);
+    System.out.println("id"+"不是空");
+        ygPojo= ygService.ygUpdateFindById(Integer.parseInt(id));
         System.out.println(ygPojo.toString());
-        model.addAttribute(ygPojo);
+        model.addAttribute("ygPojo",ygPojo);
         return "UpdateTan";
     }
 

@@ -10,15 +10,7 @@
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
     <%--    <script src="/WEB-INF/css/login.css"></script>--%>
-    <script>
-        $("#myModal").modal("hide");
 
-        function Values(user_id) {
-            alert(user_id);
-        }
-
-
-    </script>
 
 
 </head>
@@ -64,7 +56,7 @@
                 <td>${l.sfNumber}</td>
                 <td>${l.phone}</td>
                 <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.goTime}"/></td>
-                <td class="span1">${l.address}</td>
+                <td>${l.address}</td>
                 <td>${l.factory}</td>
                 <td>${l.workTime}</td>
                 <td>${l.byCar}</td>
@@ -79,10 +71,22 @@
                     <%--                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.update}"/></td>--%>
                 <td>
                     <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
-                            data-bs-target="#myModal"
-                            onclick="upDateCF">
+                            data-bs-target="#myModal" onclick="upDateCF(${l.user_id})" id="upDateCF">
                         更改
                     </button>
+                    <script>
+                        $("#myModal").modal("hide");
+                        function upDateCF(user_id) {
+                            // var a=user_id;
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("POST", "/ygUpdateFindById?id="+user_id, true);
+                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            xhttp.send();
+                            alert(user_id);
+                        }
+
+
+                    </script>
 
                     <form action="/ygUpdateFindById" method="post">
                         <div class="container mt-3">
