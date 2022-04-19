@@ -67,22 +67,49 @@
                 <td>${l.whosePrice}</td>
                 <td>${l.whoseRemarks}</td>
                 <td>${l.totalPrice}</td>
-                    <%--                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.createTime}"/></td>--%>
-                    <%--                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.update}"/></td>--%>
+                <td hidden="hidden"><fmt:formatDate pattern="yyyy/MM/dd" value="${l.createTime}"/></td>-
+                <td hidden="hidden"><fmt:formatDate pattern="yyyy/MM/dd" value="${l.update}"/></td>
                 <td>
                     <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
-                            data-bs-target="#myModal" onclick="upDateCF(${l.user_id})" id="upDateCF">
+                            data-bs-target="#myModal" onclick="upDateCF(${l.user_id},'${l.whereHome}','${l.name}',
+                        '${l.age}','${l.sex}','${l.sfNumber}','${l.phone}','${l.goTime}','${l.address}','${l.factory}',
+                        '${l.workTime}','${l.byCar}','${l.workerCarPrice}','${l.workerPrice}','${l.wokerRemarks}',
+                        '${l.whose}' ,'${l.whosePrice}','${l.whoseRemarks}','${l.totalPrice}','${l.createTime}' ,'${l.update}'
+                            )" >
                         更改
                     </button>
                     <script>
                         $("#myModal").modal("hide");
-                        function upDateCF(user_id) {
-                            // var a=user_id;
-                            var xhttp = new XMLHttpRequest();
+                        function upDateCF(user_id,whereHome,name,age,sex,sfNumber,phone,goTime,address,factory,workTime,
+                                          byCar,workerCarPrice,workerPrice,wokerRemarks,whose,whosePrice,whoseRemarks,totalPrice,
+                                          createTime,update
+                        ) {
+                            $('#user_id').val(user_id);
+                            $('#whereHome').val(whereHome);
+                            $('#name').val(name);
+                            $('#age').val(age);
+                            $('#sex').val(sex);
+                            $('#sfNumber').val(sfNumber);
+                            $('#phone').val(phone);
+                            $('#goTime').val(goTime);
+                            $('#address').val(address);
+                            $('#factory').val(factory);
+                            $('#workTime').val(workTime);
+                            $('#byCar').val(byCar);
+                            $('#workerCarPrice').val(workerCarPrice);
+                            $('#workerPrice').val(workerPrice);
+                            $('#wokerRemarks').val(wokerRemarks);
+                            $('#whose').val(whose);
+                            $('#whosePrice').val(whosePrice);
+                            $('#whoseRemarks').val(whoseRemarks);
+                            $('#totalPrice').val(totalPrice);
+                            $('#createTime').val(createTime);
+                            $('#update').val(update);
+                          /*  var xhttp = new XMLHttpRequest();
                             xhttp.open("POST", "/ygUpdateFindById?id="+user_id, true);
                             xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                             xhttp.send();
-                            alert(user_id);
+                            alert(user_id);*/
                         }
 
 
