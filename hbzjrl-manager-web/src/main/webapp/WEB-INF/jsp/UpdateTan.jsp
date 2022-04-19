@@ -11,7 +11,7 @@
                 <thead>
                 <!-- 模态框头部 -->
                 <div class="modal-header">
-<%--                    <h4 class="modal-title"><input type="text"  readonly  id="name"  disabled="disabled"></h4>--%>
+                    <%--<h4 class="modal-title"><input type="text"  readonly  id="name"  disabled="disabled"></h4>--%>
                     <h4 class="modal-title"><input type="text"  readonly  id="name"/></h4>
 
                     </label>

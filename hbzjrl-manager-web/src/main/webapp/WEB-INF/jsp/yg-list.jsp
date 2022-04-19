@@ -72,9 +72,9 @@
                 <td>
                     <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
                             data-bs-target="#myModal" onclick="upDateCF(${l.user_id},'${l.whereHome}','${l.name}',
-                        '${l.age}','${l.sex}','${l.sfNumber}','${l.phone}','${l.goTime}','${l.address}','${l.factory}',
-                        '${l.workTime}','${l.byCar}','${l.workerCarPrice}','${l.workerPrice}','${l.wokerRemarks}',
-                        '${l.whose}' ,'${l.whosePrice}','${l.whoseRemarks}','${l.totalPrice}','${l.createTime}' ,'${l.update}'
+                            '${l.age}','${l.sex}','${l.sfNumber}','${l.phone}','${l.goTime}','${l.address}','${l.factory}',
+                            '${l.workTime}','${l.byCar}','${l.workerCarPrice}','${l.workerPrice}','${l.wokerRemarks}',
+                            '${l.whose}' ,'${l.whosePrice}','${l.whoseRemarks}','${l.totalPrice}','${l.createTime}' ,'${l.update}'
                             )" >
                         更改
                     </button>
@@ -105,14 +105,12 @@
                             $('#totalPrice').val(totalPrice);
                             $('#createTime').val(createTime);
                             $('#update').val(update);
-                          /*  var xhttp = new XMLHttpRequest();
-                            xhttp.open("POST", "/ygUpdateFindById?id="+user_id, true);
-                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                            xhttp.send();
-                            alert(user_id);*/
+                            /*  var xhttp = new XMLHttpRequest();
+                              xhttp.open("POST", "/ygUpdateFindById?id="+user_id, true);
+                              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                              xhttp.send();
+                              alert(user_id);*/
                         }
-
-
                     </script>
 
                     <form action="/ygUpdateFindById" method="post">
