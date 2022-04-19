@@ -1,93 +1,77 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
 <!-- 模态框 -->
-<div class="modal" id="myModal">
-    <div class="modal-dialog">
+<div class="modal" id="myModal"  >
+    <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <table class="table  text-nowrap" >
-                <thead>
-                <!-- 模态框头部 -->
-                <div class="modal-header">
-                    <%--<h4 class="modal-title"><input type="text"  readonly  id="name"  disabled="disabled"></h4>--%>
-                    <h4 class="modal-title"><input type="text"  readonly  id="name"/></h4>
-
-                    </label>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                </thead>
-                <!-- 模态框内容 -->
+                                          <!-- 模态框内容 -->
                 <div class="modal-body">
                     <tr>
-                        <td> ID <input type="text"  id="user_id" readonly /></td>
+                        <th><input type="text" id="name" readonly/>ID<input type="text"  id="user_id" readonly/></th>
                     </tr>
                     <tr>
-                        <td> 渠道<input type="text"  id="whereHome"/>
-                        </td>
+                        <th>渠道&nbsp&nbsp&nbsp&nbsp<input type="text"  id="whereHome"/></th>
                     </tr>
                     <tr>
-                        <td>年龄<input type="text"  id="age"/></td>
+                        <th>年龄&nbsp&nbsp&nbsp&nbsp<input type="text"  id="age"/></th>
                     </tr>
                     <tr>
-                        <td>性别<input type="text"  id="sex"/></td><td></td>
+                        <th>性别&nbsp&nbsp&nbsp&nbsp<input type="text"  id="sex"/></th><td></td>
                     </tr>
                     <tr>
-                        <td> 身份证号<input type="text"  id="sfNumber"/></td>
+                        <th>身份证号<input type="text"  id="sfNumber"/></th>
                     </tr>
                     <tr>
-                        <td> 手机<input type="text"  id="phone"/></td>
+                        <th>手机&nbsp&nbsp&nbsp&nbsp<input type="text"  id="phone"/></th>
                     </tr>
                     <tr>
-                        <td> 出发日期<input type="text"  id="goTime"/></td>
+                        <th>出发日期<input type="text"  id="goTime"/></th>
                     </tr>
                     <tr>
-                        <td> 住址<input type="text"  id="address"/></td>
+                        <th>住址&nbsp&nbsp&nbsp&nbsp<input type="text"  id="address"/></th>
                     </tr>
                     <tr>
-                        <td> 企业<input type="text"  id="factory"/></td>
+                        <th>企业&nbsp&nbsp&nbsp&nbsp<input type="text"  id="factory"/></th>
                     </tr>
                     <tr>
-                        <td> 合同日期<input type="text"  id="workTime"/></td>
+                        <th>合同日期<input type="text"  id="workTime"/></th>
                     </tr>
                     <tr>
-                        <td> 发车<input type="text"  id="byCar"/></td>
+                        <th>发车&nbsp&nbsp&nbsp&nbsp<input type="text"  id="byCar"/></th>
                     </tr>
                     <tr>
-                        <td> 发车补助<input type="text"  id="workerCarPrice"/></td>
+                        <th>发车补助<input type="text"  id="workerCarPrice"/></th>
                     </tr>
                     <tr>
-                        <td> 员工单价<input type="text"  id="workerPrice"/></td>
+                        <th>员工单价<input type="text"  id="workerPrice"/></th>
                     </tr>
                     <tr>
-                        <td> 员工备注<input type="text"  id="wokerRemarks"/></td>
+                        <th>员工备注<input type="text"  id="wokerRemarks"/></th>
                     </tr>
                     <tr>
-                        <td> 代理<input type="text"  id="whose"/></td>
+                        <th>代理&nbsp&nbsp&nbsp&nbsp<input type="text"  id="whose"/></th>
                     </tr>
                     <tr>
-                        <td> 代理单价<input type="text"  id="whosePrice"/></td>
+                        <th>代理单价<input type="text"  id="whosePrice"/></th>
                     </tr>
                     <tr>
-                        <td> 代理备注<input type="text"  id="whoseRemarks"/></td>
+                        <th>代理备注<input type="text"  id="whoseRemarks"/></th>
                     </tr>
                     <tr>
-                        <td> 总价<input type="text"  id="totalPrice"/></td>
+                        <th>总价&nbsp&nbsp&nbsp&nbsp<input type="text"  id="totalPrice"/></th>
                     </tr>
                     <tr>
-                        <td> 创建时间<input type="text"  id="createTime"/>更新<input type="text"  id="update"/></td>
+                        <th>创建时间<input type="text"  id="createTime" readonly/>更新<input type="text"  id="update" readonly/></th>
                     </tr>
-
+                    <tr>
+                        <th>
+                            <button type="submit" class="btn btn-primary" style="float:right">更新</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" style="float:right">关闭</button>
+                        </th>
+                    </tr>
                 </div>
-                <tr>
-                    <td>   <!-- 模态框底部 -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">关闭</button>
-                            <button type="submit" class="btn btn-primary">更新</button>
-                        </div>
-                    </td>
-                </tr>
             </table>
         </div>
     </div>
