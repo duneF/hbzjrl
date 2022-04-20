@@ -44,4 +44,12 @@ public class YgServiceImp implements YgService {
         return ygMapper.ygUpdateFindById(tiQuId);
     }
 
+    @Override
+    public void ygUpdateIng(YgPojo ygPojo) {
+        System.out.println("进入service Imp");
+        System.out.println(ygPojo.toString());
+
+        ygMapper.ygUpdateIng(ygPojo);
+    }
+
 }

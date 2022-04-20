@@ -38,4 +38,12 @@
     <select id="ygUpdateFindById" resultType="com.hbzjrl.pojo.YgPojo">
         select * FROM 2022Year where user_id =#{tiQuId}
     </select>
+
+    <update id="ygUpdateIng" parameterType="com.hbzjrl.pojo.YgPojo">
+        update 2022Year set
+            whereHome=#{whereHome}, name=#{name}, sex=#{sex}, age=#{age}, sfNumber=#{sfNumber}, phone=#{phone}, goTime=#{goTime},
+            address=#{address}, factory=#{factory},workTime=#{workTime}, byCar=#{byCar}, workerPrice=#{workerPrice}, workerCarPrice=#{workerCarPrice},
+            wokerRemarks=#{wokerRemarks},whose=#{whose},whosePrice=#{whosePrice}, whoseRemarks=#{whoseRemarks}, totalPrice=#{totalPrice}
+        where user_id=#{user_id}
+    </update>
 </mapper>

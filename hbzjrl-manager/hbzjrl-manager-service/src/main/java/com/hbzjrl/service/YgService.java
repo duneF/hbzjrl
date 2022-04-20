@@ -22,4 +22,6 @@ public interface YgService {
     Integer count();
 
     YgPojo ygUpdateFindById(Integer tiQuId);
+
+    void ygUpdateIng(YgPojo ygPojo);
 }

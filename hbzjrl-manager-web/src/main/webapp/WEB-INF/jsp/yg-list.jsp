@@ -6,17 +6,12 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
-    <%--    <script src="/WEB-INF/css/login.css"></script>--%>
-
-
-
 </head>
 <body>
-<jsp:include page="LoginOutDiv.jsp" flush="true"/>
-<div class="table-responsive-sm row row-same-height">
+<div>
     <table class="table  table-hover table-striped table-bordered text-nowrap col-sm " id="ygList" title="员工列表">
         <thead>
         <tr>
@@ -40,36 +35,36 @@
             <th>代理单价</th>
             <th>代理备注</th>
             <th>总价</th>
-            <%--            <th data-options="align:'center'">创建日期</th>--%>
-            <%--            <th data-options="align:'center'">更新日期</th>--%>
+            <%--<th data-options="align:'center'">创建日期</th>--%>
+            <%--<th data-options="align:'center'">更新日期</th>--%>
         </tr>
         </thead>
         <tbody class="font-monospace ">
         <c:forEach items="${ygList}" var="l">
             <tr>
-                <td><input type="checkbox" name="TiQuId" value="${l.user_id}"></td>
-                <td>${l.user_id}</td>
-                <td>${l.whereHome}</td>
-                <td>${l.name}</td>
-                <td>${l.age}</td>
-                <td>${l.sex}</td>
-                <td>${l.sfNumber}</td>
-                <td>${l.phone}</td>
-                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${l.goTime}"/></td>
-                <td>${l.address}</td>
-                <td>${l.factory}</td>
-                <td>${l.workTime}</td>
-                <td>${l.byCar}</td>
-                <td>${l.workerCarPrice}</td>
-                <td>${l.workerPrice}</td>
-                <td>${l.wokerRemarks}</td>
-                <td>${l.whose}</td>
-                <td>${l.whosePrice}</td>
-                <td>${l.whoseRemarks}</td>
-                <td>${l.totalPrice}</td>
-                <td hidden="hidden"><fmt:formatDate pattern="yyyy/MM/dd" value="${l.createTime}"/></td>-
-                <td hidden="hidden"><fmt:formatDate pattern="yyyy/MM/dd" value="${l.update}"/></td>
-                <td>
+                <th><input type="checkbox" name="TiQuId" value="${l.user_id}"></th>
+                <th>${l.user_id}</th>
+                <th>${l.whereHome}</th>
+                <th>${l.name}</th>
+                <th>${l.age}</th>
+                <th>${l.sex}</th>
+                <th>${l.sfNumber}</th>
+                <th>${l.phone}</th>
+                <th><fmt:formatDate pattern="yyyy.MM.dd" value="${l.goTime}"/></th>
+                <th>${l.address}</th>
+                <th>${l.factory}</th>
+                <th>${l.workTime}</th>
+                <th>${l.byCar}</th>
+                <th>${l.workerCarPrice}</th>
+                <th>${l.workerPrice}</th>
+                <th>${l.wokerRemarks}</th>
+                <th>${l.whose}</th>
+                <th>${l.whosePrice}</th>
+                <th>${l.whoseRemarks}</th>
+                <th>${l.totalPrice}</th>
+                <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.createTime}"/></th>
+                <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.update}"/></th>
+                <th>
                     <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
                             data-bs-target="#myModal" onclick="upDateCF(${l.user_id},'${l.whereHome}','${l.name}',
                             '${l.age}','${l.sex}','${l.sfNumber}','${l.phone}','${l.goTime}','${l.address}','${l.factory}',
@@ -105,22 +100,17 @@
                             $('#totalPrice').val(totalPrice);
                             $('#createTime').val(createTime);
                             $('#update').val(update);
-                            /*  var xhttp = new XMLHttpRequest();
-                              xhttp.open("POST", "/ygUpdateFindById?id="+user_id, true);
-                              xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                              xhttp.send();
-                              alert(user_id);*/
                         }
                     </script>
 
-                    <form action="/ygUpdateFindById" method="post">
+                    <form action="/ygUpdateIng" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
                                 <jsp:include page="UpdateTan.jsp"></jsp:include>
                             </ul>
                         </div>
                     </form>
-                </td>
+                </th>
             </tr>
         </c:forEach>
         <tr style="height: 2px">
@@ -143,6 +133,5 @@
         $("form").submit();
     }
 </script>
-
 </body>
 </html>

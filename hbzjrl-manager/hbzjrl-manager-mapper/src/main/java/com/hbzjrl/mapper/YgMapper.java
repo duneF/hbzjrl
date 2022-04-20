@@ -17,4 +17,6 @@ public interface YgMapper {
     Integer count();
 
     YgPojo ygUpdateFindById(Integer tiQuId);
+
+    void ygUpdateIng(YgPojo ygPojo);
 }

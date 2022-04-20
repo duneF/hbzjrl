@@ -9,34 +9,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import com.github.pagehelper.PageHelper;
 
-import javax.management.QueryExp;
-import java.util.HashMap;
 import java.util.List;
 
 /***
- *@Author: Yc
- *@Date:2022/4/12 9:20
- *@Description:
+ *Author: Yc
+ *Date:2022/4/12 9:20
+ *Description:
  */
 @Controller
 public class YgShow {
     @Autowired
     private YgService ygService;
-    private NacigatePagesPlus nacigatePagesPlus;
-    private HashMap<String, String> map;
-    private List<YgPojo> ygAllList;
-    private Integer count;
-    private Integer limitPage;
-    private Integer pagesShuRu=1;
-    private YgPojo ygPojo;
-
-
+    private Integer pagesShuRu = 1;
 
     @RequestMapping("/ygShowAll")
     public String findAllByYgTable(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "10") Integer pageSize) {
-        nacigatePagesPlus = new NacigatePagesPlus();
+        NacigatePagesPlus nacigatePagesPlus = new NacigatePagesPlus();
         System.out.println(pageNum + "进入findALl" + pageSize);
         if (pageSize < 1) {
             pageSize = 10;
@@ -60,19 +49,22 @@ public class YgShow {
         model.addAttribute("ygList", list);
         return "/yg-list";
     }
-
-
-@RequestMapping("/ygUpdateFindById")
-    public  String ygUpdateFindById(Model model,String id){
-    System.out.println("进入FIndById");
-    System.out.println(id);
-    System.out.println("id"+"不是空");
-        ygPojo= ygService.ygUpdateFindById(Integer.parseInt(id));
+    //根据ID查找
+    @RequestMapping("/ygUpdateFindById")
+    public String ygUpdateFindById(Model model, YgPojo ygPojo) {
+        System.out.println("进入FIndById");
         System.out.println(ygPojo.toString());
-        model.addAttribute("ygPojo",ygPojo);
+        int id = ygPojo.getUser_id();
+        ygPojo = ygService.ygUpdateFindById(id);
+        model.addAttribute("ygPojo", ygPojo);
         return "UpdateTan";
     }
-
-
+    //根据ID修改
+    @RequestMapping("/ygUpdateIng")
+    public String ygUpdateIng(YgPojo ygPojo){
+        System.out.println("进入根据ID");
+        ygService.ygUpdateIng(ygPojo);
+        return "redirect:/ygShowAll";
+    }
 
 }
