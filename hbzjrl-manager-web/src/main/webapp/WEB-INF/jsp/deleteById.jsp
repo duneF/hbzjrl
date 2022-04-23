@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- 模态框 -->
-<div class="modal fade" id="myModalDelete">
+<div class="modal" id="myModalDelById">
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <!-- 模态框头部 -->
@@ -9,11 +9,11 @@
             </div>
                       <!-- 模态框内容 -->
             <div class="modal-body">
-                 <h1> <input type="text" id="name" placeholder="姓名"/></h1>
+                 <h1> <input type="text" id="name2" name="name" placeholder="姓名"/></h1>
                 <table  class="table  text-nowrap" >
                     <tr>
                         <th>
-                            <input type="text" id="user_id" placeholder="ID"/>
+                            <input type="text" id="user_id1" name="user_id" placeholder="ID"/>
                         </th>
                     </tr>
                 </table>

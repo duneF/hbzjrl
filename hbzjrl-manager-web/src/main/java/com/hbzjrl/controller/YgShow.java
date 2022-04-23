@@ -76,7 +76,8 @@ public class YgShow {
 
     //根据ID删除
     @RequestMapping("/deleteById")
-    public String deleteById(Integer id) {
+    public String deleteById(YgPojo ygPojo) {
+        int id=ygPojo.getUser_id();
         System.out.println("根据ID进入删除" + id);
         ygService.deleteById(id);
         return "redirect:/ygShowAll";

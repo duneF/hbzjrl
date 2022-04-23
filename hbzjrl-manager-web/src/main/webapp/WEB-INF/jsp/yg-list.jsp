@@ -6,8 +6,8 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet"   href="css/font-awesome.css">
-    <link rel="stylesheet"  href="css/stvle.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="css/stvle.css">
 
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
@@ -49,16 +49,16 @@
                     <span class="nav-text">新闻</span>
                 </a>
             </li>
-<%-- 吗不够再加li--%>
+            <%-- 吗不够再加li--%>
         </ul>
     </div>
 </nav>
 
 <header>
-       <div class="px-3 py-2 border-bottom mb-3">
+    <div class="px-3 py-2 border-bottom mb-3">
         <div class="container  d-flex flex-wrap justify-content-center">
             <div class="row">
-                <form class="well form-search" action="/ygFindByQuDao" >
+                <form class="well form-search" action="/ygFindByQuDao">
                     <input type="search" class="input-medium search-query" placeholder="按渠道查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
                 </form>
@@ -153,11 +153,17 @@
                             )">
                         更改
                     </button>
-                    &nbsp;
                     <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#myModalDelete" onclick="deleteByIdMoTai(${l.user_id},'${l.name}')">
+                            data-bs-target="#myModalDelById" onclick="delById(${l.user_id},'${l.name}')">
                         删除
                     </button>
+                 <%--   <form form-horizontal action="/deleteById?id=${l.user_id}" method="post">
+                        <button type="submit" class="btn btn-danger btn-sm">删除</button>
+                    </form>--%>
+                        <%--<button type="submit"  class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                data-bs-target="#myModalDelete" onclick="deleteByIdMoTai(${l.user_id},'${l.name}')">
+                            删除
+                        </button>--%>
                     <script>
                         $("#myModal").modal("hide");
 
@@ -187,15 +193,19 @@
                             $('#createTime').val(createTime);
                             $('#update').val(update);
                         }
-
-                        function deleteByIdMoTai(user_id, name) {
-                            var xhttp = new XMLHttpRequest();
-                            xhttp.open("POST", "/deleteById?id=" + user_id, true);
-                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-                            xhttp.send();
-                            alert("已删除" + name+"点击F5刷新页面");
+                        $("#myModalDelById").modal("hide");
+                        function delById(user_id,name) {
+                            $('#user_id1').val(user_id);
+                            $('#name2').val(name);
                         }
                     </script>
+                    <form action="/deleteById" method="post">
+                        <div class="container mt-3">
+                            <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
+                                <jsp:include page="deleteById.jsp"></jsp:include>
+                            </ul>
+                        </div>
+                    </form>
                     <form action="/ygUpdateIng" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
