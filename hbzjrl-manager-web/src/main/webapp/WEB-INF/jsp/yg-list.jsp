@@ -6,13 +6,93 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"   href="css/font-awesome.css">
+    <link rel="stylesheet"  href="css/stvle.css">
+
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
 </head>
 <body>
-<div>
-    <table class="table  table-hover table-striped table-bordered text-nowrap col-sm " id="ygList" title="员工列表">
+<nav class="menu-wrap">
+    <div class="menu">
+        <ul>
+            <li>
+                <a href="">
+                    <i class="fa fa-home fa-lg"></i>
+                    <span class="nav-text">首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa fa-user fa-lg"></i>
+                    <span class="nav-text">登录</span>
+                </a>
+            </li>
+            <li>
+                <a href=" ">
+                    <i class="fa fa-envelope-o fa-lg"></i>
+                    <span class="nav-text">联系</span>
+                </a>
+            </li>
+            <li>
+                <a href=" ">
+                    <i class="fa fa-heart-o fa-lg"></i>
+                    <span class="nav-text">收藏</span>
+                </a>
+            </li>
+            </li>
+            <li class="darkerlishadow">
+                <a href=" ">
+                    <i class="fa fa-clock-o fa-lg"></i>
+                    <span class="nav-text">新闻</span>
+                </a>
+            </li>
+<%-- 吗不够再加li--%>
+        </ul>
+    </div>
+</nav>
+
+<header>
+       <div class="px-3 py-2 border-bottom mb-3">
+        <div class="container  d-flex flex-wrap justify-content-center">
+            <div class="row">
+                <form class="well form-search" action="/ygFindByQuDao" >
+                    <input type="search" class="input-medium search-query" placeholder="按渠道查询">
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
+                </form>
+            </div>
+            <div class="row">
+                <form class="well form-search" action="/ygFIndByName" method="post">
+                    <input type="search" class="input-medium search-query" placeholder="按姓名查询">
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>姓名</button>
+                </form>
+            </div>
+            <div class="text-end">
+                <form class="well form-search" action="ygFIndByPhone">
+                    <input type="search" class="input-medium search-query" placeholder="按手机查询">
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>手机</button>
+                </form>
+            </div>
+            <div class="text-end">
+                <form class="well form-search" action="ygFIndByAd">
+                    <input type="search" class="input-medium search-query" placeholder="按地址查询">
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>地址</button>
+                </form>
+            </div>
+            <div class="text-end">
+                <form class="well form-search" action="ygFindByQiYe">
+                    <input type="search" class="input-medium search-query" placeholder="按企业查询">
+                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>企业</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="ygListDiv">
+    <table class="table  table-hover table-striped table-bordered text-nowrap col-sm table-sm " id="ygList"
+           title="员工列表">
         <thead>
         <tr>
             <th data-options="field:'ck',checkbox:true"></th>
@@ -65,19 +145,25 @@
                 <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.createTime}"/></th>
                 <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.update}"/></th>
                 <th>
-                    <button type="button" class="btn btn-primary btn-sm"   data-bs-toggle="modal"
+                    <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#myModal" onclick="upDateCF(${l.user_id},'${l.whereHome}','${l.name}',
                             '${l.age}','${l.sex}','${l.sfNumber}','${l.phone}','${l.goTime}','${l.address}','${l.factory}',
                             '${l.workTime}','${l.byCar}','${l.workerCarPrice}','${l.workerPrice}','${l.wokerRemarks}',
                             '${l.whose}' ,'${l.whosePrice}','${l.whoseRemarks}','${l.totalPrice}','${l.createTime}' ,'${l.update}'
-                            )" >
+                            )">
                         更改
+                    </button>
+                    &nbsp;
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#myModalDelete" onclick="deleteByIdMoTai(${l.user_id},'${l.name}')">
+                        删除
                     </button>
                     <script>
                         $("#myModal").modal("hide");
-                        function upDateCF(user_id,whereHome,name,age,sex,sfNumber,phone,goTime,address,factory,workTime,
-                                          byCar,workerCarPrice,workerPrice,wokerRemarks,whose,whosePrice,whoseRemarks,totalPrice,
-                                          createTime,update
+
+                        function upDateCF(user_id, whereHome, name, age, sex, sfNumber, phone, goTime, address, factory, workTime,
+                                          byCar, workerCarPrice, workerPrice, wokerRemarks, whose, whosePrice, whoseRemarks, totalPrice,
+                                          createTime, update
                         ) {
                             $('#user_id').val(user_id);
                             $('#whereHome').val(whereHome);
@@ -101,8 +187,15 @@
                             $('#createTime').val(createTime);
                             $('#update').val(update);
                         }
-                    </script>
 
+                        function deleteByIdMoTai(user_id, name) {
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.open("POST", "/deleteById?id=" + user_id, true);
+                            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                            xhttp.send();
+                            alert("已删除" + name+"点击F5刷新页面");
+                        }
+                    </script>
                     <form action="/ygUpdateIng" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">

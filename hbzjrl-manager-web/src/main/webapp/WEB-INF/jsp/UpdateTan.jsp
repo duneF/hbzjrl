@@ -6,7 +6,7 @@
     <div class="modal-dialog modal-dialog-scrollable">
         <div class="modal-content">
             <table class="table  text-nowrap" >
-                                          <!-- 模态框内容 -->
+                <!-- 模态框内容 -->
                 <div class="modal-body">
                     <tr>
                         <th><input type="text" id="name" name="name" placeholder="姓名"/>ID<input type="text"  id="user_id" name="user_id" readonly/></th>

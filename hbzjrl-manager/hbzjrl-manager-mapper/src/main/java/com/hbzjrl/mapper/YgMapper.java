@@ -19,4 +19,6 @@ public interface YgMapper {
     YgPojo ygUpdateFindById(Integer tiQuId);
 
     void ygUpdateIng(YgPojo ygPojo);
+
+    void deleteById(Integer id);
 }

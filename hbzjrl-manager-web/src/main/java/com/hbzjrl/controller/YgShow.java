@@ -23,12 +23,17 @@ public class YgShow {
     private YgService ygService;
     private Integer pagesShuRu = 1;
 
+    @RequestMapping("/houTaiGuanLi")
+    public String houTaiGuanLi() {
+        return "/houTai";
+    }
+
     @RequestMapping("/ygShowAll")
-    public String findAllByYgTable(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "10") Integer pageSize) {
+    public String findAllByYgTable(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize) {
         NacigatePagesPlus nacigatePagesPlus = new NacigatePagesPlus();
         System.out.println(pageNum + "进入findALl" + pageSize);
         if (pageSize < 1) {
-            pageSize = 10;
+            pageSize = 8;
         }
         if (pageNum < 0 | pageNum > pagesShuRu) {
             pageNum = 1;
@@ -49,6 +54,7 @@ public class YgShow {
         model.addAttribute("ygList", list);
         return "/yg-list";
     }
+
     //根据ID查找
     @RequestMapping("/ygUpdateFindById")
     public String ygUpdateFindById(Model model, YgPojo ygPojo) {
@@ -59,12 +65,22 @@ public class YgShow {
         model.addAttribute("ygPojo", ygPojo);
         return "UpdateTan";
     }
+
     //根据ID修改
     @RequestMapping("/ygUpdateIng")
-    public String ygUpdateIng(YgPojo ygPojo){
-        System.out.println("进入根据ID");
+    public String ygUpdateIng(YgPojo ygPojo) {
+        System.out.println("根据ID进入更新");
         ygService.ygUpdateIng(ygPojo);
         return "redirect:/ygShowAll";
     }
+
+    //根据ID删除
+    @RequestMapping("/deleteById")
+    public String deleteById(Integer id) {
+        System.out.println("根据ID进入删除" + id);
+        ygService.deleteById(id);
+        return "redirect:/ygShowAll";
+    }
+
 
 }

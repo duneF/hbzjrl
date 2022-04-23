@@ -46,4 +46,7 @@
             wokerRemarks=#{wokerRemarks},whose=#{whose},whosePrice=#{whosePrice}, whoseRemarks=#{whoseRemarks}, totalPrice=#{totalPrice}
         where user_id=#{user_id}
     </update>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE FROM 2022Year WHERE user_id = ${id};
+    </delete>
 </mapper>

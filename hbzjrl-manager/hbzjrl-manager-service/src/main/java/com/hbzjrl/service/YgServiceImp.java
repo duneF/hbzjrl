@@ -52,4 +52,10 @@ public class YgServiceImp implements YgService {
         ygMapper.ygUpdateIng(ygPojo);
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        System.out.println("进入deleteByID ServiceImp");
+        ygMapper.deleteById(id);
+    }
+
 }
