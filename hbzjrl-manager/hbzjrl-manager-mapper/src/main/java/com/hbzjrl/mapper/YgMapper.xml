@@ -4,7 +4,7 @@
 
 <mapper namespace="com.hbzjrl.mapper.YgMapper">
     <resultMap id="YgFindAll" type="com.hbzjrl.pojo.YgPojo">
-       <id column="user_id" property="user_id"/>
+        <id column="user_id" property="user_id"/>
         <result column="whereHome" property="whereHome"/>
         <result column="name" property="name"/>
         <result column="sex" property="sex"/>
@@ -26,27 +26,92 @@
         <result column="createTime" property="createTime"/>
         <result column="update" property="update"/>
     </resultMap>
-<!--分页查询-->
+    <!--分页查询-->
     <select id="findAllByYgTable" parameterType="map" resultMap="YgFindAll">
-        SELECT * FROM 2022Year ORDER  by user_id DESC limit #{pageNum},#{pageSize}
+        SELECT *
+        FROM 2022Year
+        ORDER by user_id DESC limit #{pageNum}, #{pageSize}
     </select>
-<!--总页数-->
+    <!--总页数-->
     <select id="count" resultType="java.lang.Integer">
-        select count(user_id) from 2022Year;
+        select count(user_id)
+        from 2022Year;
     </select>
-<!--查询单个-->
+    <!--查询单个-->
     <select id="ygUpdateFindById" resultType="com.hbzjrl.pojo.YgPojo">
-        select * FROM 2022Year where user_id =#{tiQuId}
+        select *
+        FROM 2022Year
+        where user_id = #{tiQuId}
+    </select>
+    <!--根据ID更新数据-->
+    <update id="ygUpdateIng" parameterType="com.hbzjrl.pojo.YgPojo">
+        update 2022Year
+        set whereHome=#{whereHome},
+            name=#{name},
+            sex=#{sex},
+            age=#{age},
+            sfNumber=#{sfNumber},
+            phone=#{phone},
+            goTime=#{goTime},
+            address=#{address},
+            factory=#{factory},
+            workTime=#{workTime},
+            byCar=#{byCar},
+            workerPrice=#{workerPrice},
+            workerCarPrice=#{workerCarPrice},
+            wokerRemarks=#{wokerRemarks},
+            whose=#{whose},
+            whosePrice=#{whosePrice},
+            whoseRemarks=#{whoseRemarks},
+            totalPrice=#{totalPrice}
+        where user_id = #{user_id}
+    </update>
+    <!--    根据ID删除数据-->
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        DELETE
+        FROM 2022Year
+        WHERE user_id = ${id};
+    </delete>
+
+    <!--渠道总页数-->
+    <select id="countByWhereHome" resultType="java.lang.Integer">
+        select count(user_id)
+        from 2022Year where whereHome like #{whereHome};
     </select>
 
-    <update id="ygUpdateIng" parameterType="com.hbzjrl.pojo.YgPojo">
-        update 2022Year set
-            whereHome=#{whereHome}, name=#{name}, sex=#{sex}, age=#{age}, sfNumber=#{sfNumber}, phone=#{phone}, goTime=#{goTime},
-            address=#{address}, factory=#{factory},workTime=#{workTime}, byCar=#{byCar}, workerPrice=#{workerPrice}, workerCarPrice=#{workerCarPrice},
-            wokerRemarks=#{wokerRemarks},whose=#{whose},whosePrice=#{whosePrice}, whoseRemarks=#{whoseRemarks}, totalPrice=#{totalPrice}
-        where user_id=#{user_id}
-    </update>
-    <delete id="deleteById" parameterType="java.lang.Integer">
-        DELETE FROM 2022Year WHERE user_id = ${id};
-    </delete>
+    <!--    根据渠道查询数据-->
+    <select id="ygFindByQuDao" parameterType="map" resultMap="YgFindAll">
+        SELECT *
+        FROM 2022Year
+        where whereHome like #{whereHome}
+        ORDER by user_id DESC;
+    </select>
+    <!--根据姓名查询数据-->
+    <select id="ygFIndByName" parameterType="map" resultMap="YgFindAll">
+        SELECT *
+        FROM 2022Year
+        where name like #{name}
+        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+    </select>
+    <!--根据姓名查询数据-->
+    <select id="ygFIndByPhone" parameterType="map" resultMap="YgFindAll">
+        SELECT *
+        FROM 2022Year
+        where phone like #{phone}
+        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+    </select>
+    <!--根据地址查询数据-->
+    <select id="ygFIndByAddress" parameterType="map" resultMap="YgFindAll">
+        SELECT *
+        FROM 2022Year
+        where address like #{address}
+        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+    </select>
+    <!--根据地址查询数据-->
+    <select id="ygFindByQiYe" parameterType="map" resultMap="YgFindAll">
+        SELECT *
+        FROM 2022Year
+        where factory like #{factory}
+        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+    </select>
 </mapper>

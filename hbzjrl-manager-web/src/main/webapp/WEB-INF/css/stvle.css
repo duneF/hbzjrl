@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    background: url('../images/bg.jpg') 50% / cover no-repeat;
+    background: url(/image/bg.png) 50% / cover no-repeat;
 }
 
 .menu-wrap {
@@ -21,7 +21,7 @@ body {
     left: 0;
     top: 0;
     bottom: 0;
-    width: 55px;
+    width: 28px;
     transition: width 0.2s linear;
     -webkit-transition: width 0.2s linear;
     transform: translateZ(0) scale(1, 1);
@@ -40,7 +40,7 @@ body {
     left: 0;
     top: 80px;
     bottom: 80px;
-    width: 250px;
+    width: 200px;
     overflow-y: auto;
 }
 

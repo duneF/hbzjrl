@@ -1,21 +1,19 @@
 package com.hbzjrl.service;
 
 import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.hbzjrl.mapper.YgMapper;
 import com.hbzjrl.pojo.YgPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.management.Query;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 /***
- *@Author: Yc
- *@Date:2022/4/14 12:48
- *@Description:
+ *Author: Yc
+ *Date:2022/4/14 12:48
+ *Description:
  */
 @Service
 public class YgServiceImp implements YgService {
@@ -29,9 +27,7 @@ public class YgServiceImp implements YgService {
         map.put("pageNum",(pageNum-1)*pageSize);
         map.put("pageSize",pageSize);
 
-        List<YgPojo> list = ygMapper.findAllByYgTable(map);
-
-        return list;
+        return ygMapper.findAllByYgTable(map);
     }
 
     @Override
@@ -58,4 +54,67 @@ public class YgServiceImp implements YgService {
         ygMapper.deleteById(id);
     }
 
+    @Override
+    public Integer countByWhereHome(String whereHome) {
+        whereHome="%"+whereHome+"%";
+        return ygMapper.countByWhereHome(whereHome);
+    }
+
+    @Override
+
+    public List<YgPojo> ygFindByQuDao(String whereHome) {
+
+        Map<String, Object> map = new HashMap<>();
+        whereHome="%"+whereHome+"%";
+        map.put("whereHome",whereHome);
+        return  ygMapper.ygFindByQuDao(map);
+    }
+
+    @Override
+    public List<YgPojo> ygFIndByName(String name, Integer pageNum, Integer pageSize) {
+        System.out.println("进入按姓名Service"+name);
+        PageHelper.startPage(pageNum, pageSize);
+        Map<String, Object> map = new HashMap<>();
+        map.put("pageNum",(pageNum-1)*pageSize);
+        map.put("pageSize",pageSize);
+        name="%"+name+"%";
+        map.put("name",name);
+        return ygMapper.ygFIndByName(map);
+    }
+
+    @Override
+    public List<YgPojo> ygFIndByPhone(String phone, Integer pageNum, Integer pageSize) {
+        System.out.println("进入按手机Service"+phone);
+        PageHelper.startPage(pageNum, pageSize);
+        Map<String, Object> map = new HashMap<>();
+        map.put("pageNum",(pageNum-1)*pageSize);
+        map.put("pageSize",pageSize);
+        phone="%"+phone+"%";
+        map.put("phone",phone);
+        return ygMapper.ygFIndByPhone(map);
+    }
+
+    @Override
+    public List<YgPojo> ygFIndByAddress(String address, Integer pageNum, Integer pageSize) {
+        System.out.println("进入按地址Service"+address);
+        PageHelper.startPage(pageNum, pageSize);
+        Map<String, Object> map = new HashMap<>();
+        map.put("pageNum",(pageNum-1)*pageSize);
+        map.put("pageSize",pageSize);
+        address="%"+address+"%";
+        map.put("address",address);
+        return  ygMapper.ygFIndByAddress(map);
+    }
+
+    @Override
+    public List<YgPojo> ygFindByQiYe(String factory, Integer pageNum, Integer pageSize) {
+        System.out.println("进入按企业Service"+factory);
+        PageHelper.startPage(pageNum, pageSize);
+        Map<String, Object> map = new HashMap<>();
+        map.put("pageNum",(pageNum-1)*pageSize);
+        map.put("pageSize",pageSize);
+        factory="%"+factory+"%";
+        map.put("factory",factory);
+        return ygMapper.ygFindByQiYe(map);
+    }
 }

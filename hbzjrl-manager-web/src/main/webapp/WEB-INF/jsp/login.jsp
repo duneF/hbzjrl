@@ -1,13 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%--<%
-    /**
-     * 设置编码（放在jsp页面最顶部）
-     */
-    request.setCharacterEncoding("utf-8");
-    response.setCharacterEncoding("utf-8");
-    response.setContentType("text/html;charset=UTF-8");
-%>--%>
-
 <html>
 <head>
     <%--    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>--%>

@@ -42,12 +42,10 @@
                     <span class="nav-text">收藏</span>
                 </a>
             </li>
-            </li>
-            <li class="darkerlishadow">
-                <a href=" ">
-                    <i class="fa fa-clock-o fa-lg"></i>
-                    <span class="nav-text">新闻</span>
-                </a>
+            <li>            </li>
+            <li>            </li>
+            <li>
+                <span class="nav-text"><h1>共${pg.total}人</h1></span>
             </li>
             <%-- 吗不够再加li--%>
         </ul>
@@ -59,31 +57,31 @@
         <div class="container  d-flex flex-wrap justify-content-center">
             <div class="row">
                 <form class="well form-search" action="/ygFindByQuDao">
-                    <input type="search" class="input-medium search-query" placeholder="按渠道查询">
+                    <input name="whereHome"  type="search" class="input-medium search-query" placeholder="按渠道查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
                 </form>
             </div>
             <div class="row">
-                <form class="well form-search" action="/ygFIndByName" method="post">
-                    <input type="search" class="input-medium search-query" placeholder="按姓名查询">
+                <form class="well form-search" action="/ygFindByName" method="post">
+                    <input name="name" type="search" class="input-medium search-query" placeholder="按姓名查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>姓名</button>
                 </form>
             </div>
             <div class="text-end">
-                <form class="well form-search" action="ygFIndByPhone">
-                    <input type="search" class="input-medium search-query" placeholder="按手机查询">
+                <form class="well form-search" action="/ygFIndByPhone">
+                    <input name="phoneToString" type="search" class="input-medium search-query" placeholder="按手机查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>手机</button>
                 </form>
             </div>
             <div class="text-end">
-                <form class="well form-search" action="ygFIndByAd">
-                    <input type="search" class="input-medium search-query" placeholder="按地址查询">
+                <form class="well form-search" action="ygFIndByAddress">
+                    <input name="address" type="search" class="input-medium search-query" placeholder="按地址查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>地址</button>
                 </form>
             </div>
             <div class="text-end">
                 <form class="well form-search" action="ygFindByQiYe">
-                    <input type="search" class="input-medium search-query" placeholder="按企业查询">
+                    <input name="factory" type="search" class="input-medium search-query" placeholder="按企业查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>企业</button>
                 </form>
             </div>
