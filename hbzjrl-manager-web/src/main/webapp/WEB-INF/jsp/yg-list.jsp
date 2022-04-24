@@ -114,7 +114,7 @@
             <th>代理备注</th>
             <th>总价</th>
             <%--<th data-options="align:'center'">创建日期</th>--%>
-            <%--<th data-options="align:'center'">更新日期</th>--%>
+            <th data-options="align:'center'">更新日期</th>
         </tr>
         </thead>
         <tbody class="font-monospace ">
@@ -141,7 +141,7 @@
                 <th>${l.whoseRemarks}</th>
                 <th>${l.totalPrice}</th>
                 <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.createTime}"/></th>
-                <th hidden="hidden"><fmt:formatDate pattern="yyyy.MM.dd" value="${l.update}"/></th>
+                <th><fmt:formatDate pattern="yyyy.MM.dd" value="${l.update}"/></th>
                 <th>
                     <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal"
                             data-bs-target="#myModal" onclick="upDateCF(${l.user_id},'${l.whereHome}','${l.name}',
@@ -155,13 +155,6 @@
                             data-bs-target="#myModalDelById" onclick="delById(${l.user_id},'${l.name}')">
                         删除
                     </button>
-                 <%--   <form form-horizontal action="/deleteById?id=${l.user_id}" method="post">
-                        <button type="submit" class="btn btn-danger btn-sm">删除</button>
-                    </form>--%>
-                        <%--<button type="submit"  class="btn btn-danger btn-sm" data-bs-toggle="modal"
-                                data-bs-target="#myModalDelete" onclick="deleteByIdMoTai(${l.user_id},'${l.name}')">
-                            删除
-                        </button>--%>
                     <script>
                         $("#myModal").modal("hide");
 

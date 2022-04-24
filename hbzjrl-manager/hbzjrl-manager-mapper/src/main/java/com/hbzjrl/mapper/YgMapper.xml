@@ -73,45 +73,65 @@
         WHERE user_id = ${id};
     </delete>
 
-    <!--渠道总页数-->
+    <!--根据渠道总页数-->
     <select id="countByWhereHome" resultType="java.lang.Integer">
         select count(user_id)
         from 2022Year where whereHome like #{whereHome};
     </select>
 
-    <!--    根据渠道查询数据-->
+    <!--根据渠道查询数据-->
     <select id="ygFindByQuDao" parameterType="map" resultMap="YgFindAll">
         SELECT *
         FROM 2022Year
         where whereHome like #{whereHome}
         ORDER by user_id DESC;
     </select>
+    <!--根据姓名总页数-->
+    <select id="countByName" resultType="java.lang.Integer">
+        select count(user_id)
+        from 2022Year where name like #{name};
+    </select>
     <!--根据姓名查询数据-->
     <select id="ygFIndByName" parameterType="map" resultMap="YgFindAll">
         SELECT *
         FROM 2022Year
         where name like #{name}
-        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+        ORDER by user_id DESC;
     </select>
-    <!--根据姓名查询数据-->
+    <!--根据手机总页数-->
+    <select id="conuntByPhone" resultType="java.lang.Integer">
+        select count(user_id)
+        from 2022Year where phone like #{phoneToString};
+    </select>
+    <!--根据手机查询数据-->
     <select id="ygFIndByPhone" parameterType="map" resultMap="YgFindAll">
         SELECT *
         FROM 2022Year
         where phone like #{phone}
-        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+        ORDER by user_id DESC;
+    </select>
+    <!--根据地址总页数-->
+    <select id="countByAddress" resultType="java.lang.Integer">
+        select count(user_id)
+        from 2022Year where address like #{address};
     </select>
     <!--根据地址查询数据-->
     <select id="ygFIndByAddress" parameterType="map" resultMap="YgFindAll">
         SELECT *
         FROM 2022Year
         where address like #{address}
-        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+        ORDER by user_id DESC;
     </select>
-    <!--根据地址查询数据-->
+    <!--根据企业总页数-->
+    <select id="countByQiYe" resultType="java.lang.Integer">
+        select count(user_id)
+        from 2022Year where factory like #{factory};
+    </select>
+    <!--根据企业查询数据-->
     <select id="ygFindByQiYe" parameterType="map" resultMap="YgFindAll">
         SELECT *
         FROM 2022Year
         where factory like #{factory}
-        ORDER by user_id DESC limit #{pageNum}, #{pageSize};
+        ORDER by user_id DESC;
     </select>
 </mapper>

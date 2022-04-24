@@ -88,7 +88,7 @@ public class YgShow {
     }
     //根据渠道查找
     @RequestMapping("/ygFindByQuDao")
-    public String ygFindByQuDao (Model model,YgPojo ygPojo, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize){
+    public String ygFindByQuDao (Model model,YgPojo ygPojo){
         System.out.println("进入按渠道查找"+ygPojo.getWhereHome());
         List<YgPojo> list=ygService.ygFindByQuDao(ygPojo.getWhereHome());
         count = ygService.countByWhereHome(ygPojo.getWhereHome());
@@ -99,117 +99,43 @@ public class YgShow {
     }
     //根据姓名查找
     @RequestMapping("/ygFindByName")
-    public String ygFIndByName (Model model,YgPojo ygPojo, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize){
+    public String ygFIndByName (Model model,YgPojo ygPojo){
         System.out.println("进入按姓名查找"+ygPojo.getName());
-        nacigatePagesPlus = new NacigatePagesPlus();
-        System.out.println(pageNum + "进入findByName" + pageSize);
-        if (pageSize < 1) {
-            pageSize = 8;
-        }
-        if (pageNum < 0 | pageNum > pagesShuRu) {
-            pageNum = 1;
-        }
-        List<YgPojo> list=ygService.ygFIndByName(ygPojo.getName(),pageNum, pageSize);
-        count = ygService.count();
-        int[] ints = nacigatePagesPlus.pageNav(pageNum, count, 6);
-        pagesShuRu = (int) Math.ceil((count / pageSize) + 0.5);
-        PageInfo<YgPojo> pg = new PageInfo<>();
-        pg.setPageNum(pageNum);
-        pg.setPageSize(pageSize);
-        pg.setTotal(count);
-        pg.setPrePage(pageNum - 1);
-        pg.setNextPage(pageNum + 1);
-        pg.setNavigatepageNums(ints);
-        pg.setPages(pagesShuRu);
-        model.addAttribute("pg", pg);
+        List<YgPojo> list=ygService.ygFIndByName(ygPojo.getName());
+        count = ygService.countByName(ygPojo.getName());
+        model.addAttribute("count", count);
         model.addAttribute("ygList", list);
 
-        return "";
+        return "/nameList";
     }
     //根据手机查找
     @RequestMapping("/ygFIndByPhone")
-    public String ygFIndByPhone (Model model,String phoneToString, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize){
+    public String ygFIndByPhone (Model model,String phoneToString){
         System.out.println("进入按手机查找"+phoneToString);
-        nacigatePagesPlus = new NacigatePagesPlus();
-        System.out.println(pageNum + "进入findByPhone" + pageSize);
-        if (pageSize < 1) {
-            pageSize = 8;
-        }
-        if (pageNum < 0 | pageNum > pagesShuRu) {
-            pageNum = 1;
-        }
-        List<YgPojo> list=ygService.ygFIndByPhone(phoneToString,pageNum, pageSize);
-        count = ygService.count();
-        int[] ints = nacigatePagesPlus.pageNav(pageNum, count, 6);
-        pagesShuRu = (int) Math.ceil((count / pageSize) + 0.5);
-        PageInfo<YgPojo> pg = new PageInfo<>();
-        pg.setPageNum(pageNum);
-        pg.setPageSize(pageSize);
-        pg.setTotal(count);
-        pg.setPrePage(pageNum - 1);
-        pg.setNextPage(pageNum + 1);
-        pg.setNavigatepageNums(ints);
-        pg.setPages(pagesShuRu);
-        model.addAttribute("pg", pg);
+        List<YgPojo> list=ygService.ygFIndByPhone(phoneToString);
+        count = ygService.conuntByPhone(phoneToString);
+        model.addAttribute("count", count);
         model.addAttribute("ygList", list);
-
-        return "";
+        return "/phoneList";
     }
     //根据地址查找
     @RequestMapping("/ygFIndByAddress")
-    public String ygFIndByAddress (Model model,String address, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize){
-        System.out.println("进入按手机查找"+address);
-        nacigatePagesPlus = new NacigatePagesPlus();
-        System.out.println(pageNum + "进入findByPhone" + pageSize);
-        if (pageSize < 1) {
-            pageSize = 8;
-        }
-        if (pageNum < 0 | pageNum > pagesShuRu) {
-            pageNum = 1;
-        }
-        List<YgPojo> list=ygService.ygFIndByAddress(address,pageNum, pageSize);
-        count = ygService.count();
-        int[] ints = nacigatePagesPlus.pageNav(pageNum, count, 6);
-        pagesShuRu = (int) Math.ceil((count / pageSize) + 0.5);
-        PageInfo<YgPojo> pg = new PageInfo<>();
-        pg.setPageNum(pageNum);
-        pg.setPageSize(pageSize);
-        pg.setTotal(count);
-        pg.setPrePage(pageNum - 1);
-        pg.setNextPage(pageNum + 1);
-        pg.setNavigatepageNums(ints);
-        pg.setPages(pagesShuRu);
-        model.addAttribute("pg", pg);
+    public String ygFIndByAddress (Model model,String address){
+        System.out.println("进入按地址查找"+address);
+        List<YgPojo> list=ygService.ygFIndByAddress(address);
+        count = ygService.countByAddress(address);
+        model.addAttribute("count", count);
         model.addAttribute("ygList", list);
-
-        return "";
+        return "/addressList";
     }  //根据企业查找
     @RequestMapping("/ygFindByQiYe")
-    public String ygFindByQiYe(Model model,String factory, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize){
+    public String ygFindByQiYe(Model model,String factory){
         System.out.println("进入按手机查找"+factory);
-        nacigatePagesPlus = new NacigatePagesPlus();
-        System.out.println(pageNum + "进入findByPhone" + pageSize);
-        if (pageSize < 1) {
-            pageSize = 8;
-        }
-        if (pageNum < 0 | pageNum > pagesShuRu) {
-            pageNum = 1;
-        }
-        List<YgPojo> list=ygService.ygFindByQiYe(factory,pageNum, pageSize);
-        count = ygService.count();
-        int[] ints = nacigatePagesPlus.pageNav(pageNum, count, 6);
-        pagesShuRu = (int) Math.ceil((count / pageSize) + 0.5);
-        PageInfo<YgPojo> pg = new PageInfo<>();
-        pg.setPageNum(pageNum);
-        pg.setPageSize(pageSize);
-        pg.setTotal(count);
-        pg.setPrePage(pageNum - 1);
-        pg.setNextPage(pageNum + 1);
-        pg.setNavigatepageNums(ints);
-        pg.setPages(pagesShuRu);
-        model.addAttribute("pg", pg);
+        List<YgPojo> list=ygService.ygFindByQiYe(factory);
+        count = ygService.countByQiYe(factory);
+        model.addAttribute("count", count);
         model.addAttribute("ygList", list);
 
-        return "";
+        return "/qiYeList";
     }
 }
