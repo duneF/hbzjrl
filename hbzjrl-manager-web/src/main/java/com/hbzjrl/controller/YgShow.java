@@ -138,4 +138,9 @@ public class YgShow {
 
         return "/qiYeList";
     }
+
+    @RequestMapping("/tiaoZhuanYgAddJsp")
+    public String tiaoZhuanYgAddJsp(){
+        return "/ygAddYeMian";
+    }
 }

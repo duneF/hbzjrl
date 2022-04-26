@@ -8,11 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/font-awesome.css">
     <link rel="stylesheet" href="css/stvle.css">
-
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
-
 </head>
 <body>
 <nav class="menu-wrap">
@@ -42,22 +40,21 @@
                     <span class="nav-text">收藏</span>
                 </a>
             </li>
-            <li>            </li>
-            <li>            </li>
+            <li></li>
+            <li></li>
             <li>
-                <span class="nav-text"><h1>共${pg.total}人</h1></span>
+                <span class="nav-text"><h1>共${count}人</h1></span>
             </li>
             <%-- 吗不够再加li--%>
         </ul>
     </div>
 </nav>
-
 <header>
     <div class="px-3 py-2 border-bottom mb-3">
         <div class="container  d-flex flex-wrap justify-content-center">
             <div class="row">
                 <form class="well form-search" action="/ygFindByQuDao">
-                    <input name="whereHome"  type="search" class="input-medium search-query" placeholder="按渠道查询">
+                    <input name="whereHome" type="search" class="input-medium search-query" placeholder="按渠道查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
                 </form>
             </div>
@@ -88,7 +85,6 @@
             &nbsp;<span style="float: right"><button onClick="window.location.href='/tiaoZhuanYgAddJsp'" class="btn btn-success">添加</button></span>
         </div>
     </div>
-
 </header>
 <div id="ygListDiv">
     <table class="table  table-hover table-striped table-bordered text-nowrap col-sm table-sm " id="ygList"
@@ -186,8 +182,10 @@
                             $('#createTime').val(createTime);
                             $('#update').val(update);
                         }
+
                         $("#myModalDelById").modal("hide");
-                        function delById(user_id,name) {
+
+                        function delById(user_id, name) {
                             $('#user_id1').val(user_id);
                             $('#name2').val(name);
                         }
@@ -209,25 +207,8 @@
                 </th>
             </tr>
         </c:forEach>
-        <tr style="height: 2px">
-            <td colspan="22">
-                <form form-horizontal action="/ygShowAll" method="post">
-                    <div class="container mt-3">
-                        <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
-                            <jsp:include page="/WEB-INF/page/pages2.jsp"></jsp:include>
-                        </ul>
-                    </div>
-                </form>
-            </td>
-        </tr>
         </tbody>
     </table>
 </div>
-<script>
-    function goPage(pageNum) {
-        $("[name='pageNum']").val(pageNum);
-        $("form").submit();
-    }
-</script>
 </body>
 </html>
