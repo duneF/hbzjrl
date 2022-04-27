@@ -12,6 +12,15 @@
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 </head>
+<script>
+    $(document).ready(function () {
+        var time = new Date();
+        var day = ("0" + (time.getDate() + 1)).slice(-2);
+        var month = ("0" + (time.getMonth() + 1)).slice(-2);
+        var today = time.getFullYear() + "-" + (month) + "-" + (day);
+        $('#date_info').val(today);
+    })
+</script>
 <body>
 <nav class="menu-wrap">
     <div class="menu">
@@ -49,122 +58,122 @@
         </ul>
     </div>
 </nav>
-
 <header>
     <div class="px-3 py-2 border-bottom mb-3">
-        <div class="container  d-flex flex-wrap justify-content-center">
-            <div class="row">
-                <form class="well form-search" action="/ygFindByQuDao">
-                    <input name="whereHome" type="search" class="input-medium search-query" placeholder="按渠道查询">
-                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
-                </form>
-            </div>
-            <div class="row">
-                <form class="well form-search" action="/ygFindByName" method="post">
-                    <input name="name" type="search" class="input-medium search-query" placeholder="按姓名查询">
-                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>姓名</button>
-                </form>
-            </div>
-            <div class="text-end">
-                <form class="well form-search" action="/ygFIndByPhone">
-                    <input name="phoneToString" type="search" class="input-medium search-query" placeholder="按手机查询">
-                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>手机</button>
-                </form>
-            </div>
-            <div class="text-end">
-                <form class="well form-search" action="ygFIndByAddress">
-                    <input name="address" type="search" class="input-medium search-query" placeholder="按地址查询">
-                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>地址</button>
-                </form>
-            </div>
-            <div class="text-end">
-                <form class="well form-search" action="ygFindByQiYe">
-                    <input name="factory" type="search" class="input-medium search-query" placeholder="按企业查询">
-                    <button class="btn btn-primary" type="submit"><i class="icon-search"></i>企业</button>
-                </form>
-            </div>
-            &nbsp;<span style="float: right"><button onClick="window.location.href='/tiaoZhuanYgAddJsp'" class="btn btn-success">添加</button></span>
+        <div>
+           <span style="float: right">
+               <button onClick="window.location.href='/tiaoZhuanYgAddShouDong'"
+                       class="btn btn-primary">手动添加员工信息</button>
+           </span>
         </div>
     </div>
 </header>
-<div id="ygListDiv">
-    <table class="table  table-hover table-striped table-bordered text-nowrap col-sm table-sm " id="ygList"
-           title="员工列表">
-
-        <tr>
-            <th data-options="field:'ck',checkbox:true"></th>
-            <th>ID</th>
-            <th>渠道</th>
-            <th>手机</th>
-            <th>出发日期</th>
-            <th>企业</th>
-            <th>合同日期</th>
-            <th>发车</th>
-            <th>发车补助</th>
-            <th>员工单价</th>
-            <th>员工备注</th>
-            <th>代理</th>
-            <th>代理单价</th>
-            <th>代理备注</th>
-            <th>总价</th>
-            <th data-options="align:'center'">创建日期</th>
-        </tr>
-    </table>
-</div>
-<div class="form-group">
-    <label for="inputPassword3" class="col-sm-2 control-label">身份证正面照片:</label>
-    <div class="col-sm-10">
-        <input type="hidden" name="img"  id="photoUrl"/>
-        <input type="file" name="logoFile" id="logoFile" οnchange="setImg(this);">
-        <span><img id="photourlShow" src="" width="300" height="197"/></span>
-    </div>
-</div>
-<script>
-    //用于进行图片上传，返回地址
-    function setImg(obj){undefined
-        var f=$(obj).val();
-        alert(f);
-        console.log(obj);
-        if(f == null || f ==undefined || f == ''){undefined
-            return false;
-        }
-        if(!/\.(?:png|jpg|bmp|gif|PNG|JPG|BMP|GIF)$/.test(f))
-        {undefined
-            alert("类型必须是图片(.png|jpg|bmp|gif|PNG|JPG|BMP|GIF)");
-            $(obj).val('');
-            return false;
-        }
-        var data = new FormData();
-        console.log(data);
-        $.each($(obj)[0].files,function(i,file){undefined
-            data.append('file', file);
-        });
-        console.log(data);
-        $.ajax({undefined
-            type: "POST",
-            url: GLOBAL_INFO.WEBURL_PREFIX+"business/uploadImg.xhtml",
-            data: data,
-            cache: false,
-            contentType: false,    //不可缺
-            processData: false,    //不可缺
-            dataType:"json",
-            success: function(ret) {undefined
-                console.log(ret);
-                if(ret.code==0){undefined
-                    $("#photoUrl").val(ret.result.url);//将地址存储好
-                    $("#photourlShow").attr("src",ret.result.url);//显示图片
-                    alertOk(ret.message);
-                }else{undefined
-                    alertError(ret.message);
-                    $("#url").val("");
-                    $(obj).val('');
-                }
-            },
-            error: function(XMLHttpRequest, textStatus, errorThrown) {undefined
-                alert("上传失败，请检查网络后重试");
-            }
-        });
+<style type="text/css">
+    body {
+        background: #ced4da;
     }
-</script>
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div.add {
+        /*width: 100px;*/
+        /*height: 100px;*/
+        position: fixed;
+        top: 6%;
+        left: 40%;
+    }
+</style>
+<div class="add">
+    <form>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>身份证添加员工</th>
+                <th>
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>渠道</td>
+                <td><input name="" id="" placeholder="" value="张杰人力"/></td>
+            </tr>
+            <tr>
+                <td>手机</td>
+                <td><input name="" id="" placeholder="手机号"/></td>
+            </tr>
+            <%-- 默认取第二天的值--%>
+            <tr>
+                <td>出发日期</td>
+                <td>
+                    <input name="" id="date_info" type="date"/>
+                </td>
+            </tr>
+            <tr>
+                <td>企业</td>
+                <td><input name="" id="" placeholder="输入渠道"/></td>
+            </tr>
+            <tr>
+                <td>合同日期</td>
+                <td>
+                    <select>
+                        <option value="长期">长期</option>
+                        <option value="1个月">1个月</option>
+                        <option value="2个月">2个月</option>
+                        <option selected="selected" value="3个月">3个月</option>
+                        <option value="6个月">6个月</option>
+                        <option value="15天">15天</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>发车</td>
+                <td><input name="" id="" value="自发出"/></td>
+            </tr>
+            <tr>
+                <td>发车补助</td>
+                <td><input name="" id="" value="0.0"/></td>
+            </tr>
+            <tr>
+                <td>员工单价</td>
+                <td><input name="" id="" placeholder="员工单价"/></td>
+            </tr>
+            <tr>
+                <td>员工备注</td>
+                <td><input name="" id="" value="没有其他事项"/></td>
+            </tr>
+            <tr>
+                <td>代理</td>
+                <td><input name="" id="" placeholder="哪个代理" value="直招"/></td>
+            </tr>
+            <tr>
+                <td>代理单价</td>
+                <td><input name="" id="" placeholder="代理单价/总利润"/></td>
+            </tr>
+            <tr>
+                <td>代理备注</td>
+                <td><input name="" id="" value="没有其他事项"/></td>
+            </tr>
+            <tr>
+                <td>总价</td>
+                <td><input name="" id="" placeholder="输入总价/总利润"/></td>
+            </tr>
+            </tbody>
+
+            <tfoot>
+            <th>
+                <button type="reset" id="reset" class="btn btn-sm btn-danger" style="float: left">重写</button>
+            </th>
+            <th>
+                <button type="submit" class="btn btn-success" style="float:right">提交</button>
+            </th>
+            </tfoot>
+        </table>
+
+    </form>
+</div>
 </body>
 </html>

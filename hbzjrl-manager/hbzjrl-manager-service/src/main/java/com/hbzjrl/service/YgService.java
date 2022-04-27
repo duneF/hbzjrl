@@ -48,4 +48,6 @@ public interface YgService {
     Integer countByAddress(String address);
 
     Integer countByQiYe(String factory);
+
+    void addYgShouDong(YgPojo ygPojo);
 }

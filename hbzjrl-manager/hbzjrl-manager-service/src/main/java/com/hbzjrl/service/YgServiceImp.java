@@ -1,6 +1,7 @@
 package com.hbzjrl.service;
 
 import com.github.pagehelper.PageHelper;
+import com.hbzjrl.common.utils.shenFenZhengGetAgeGender;
 import com.hbzjrl.mapper.YgMapper;
 import com.hbzjrl.pojo.YgPojo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -128,6 +129,12 @@ public class YgServiceImp implements YgService {
         map.put("factory",factory);
         return ygMapper.ygFindByQiYe(map);
     }
-
+    @Override
+    public void addYgShouDong(YgPojo ygPojo) {
+        shenFenZhengGetAgeGender ageGender = new shenFenZhengGetAgeGender();
+        String genderGet = ageGender.judgeGender(ygPojo.getSfNumber().toString());
+        int ageGet = ageGender.countAge(ygPojo.getSfNumber().toString());
+        System.out.println("获取的年龄为"+genderGet+ageGet);
+    }
 
 }

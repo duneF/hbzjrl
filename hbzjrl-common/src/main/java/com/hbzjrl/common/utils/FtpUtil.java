@@ -141,8 +141,8 @@ public class FtpUtil {
         }*/
 
 //            FileOutputStream outputStream = new FileOutputStream("\\E:\\桌面临时\\11.jpg");
-            downLoadFile("43.138.80.85",21,"ftpuserzf","zf123",
-                    "/var/ftp/test/2022/4/26","OK3.jpg","\\E:\\桌面临时\\");
+        downLoadFile("43.138.80.85",21,"ftpuserzf","zf123",
+                "/var/ftp/test/2022/4/26","OK3.jpg","\\E:\\桌面临时\\");
 
 
 
