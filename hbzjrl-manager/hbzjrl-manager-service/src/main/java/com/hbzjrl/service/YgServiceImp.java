@@ -134,7 +134,9 @@ public class YgServiceImp implements YgService {
         shenFenZhengGetAgeGender ageGender = new shenFenZhengGetAgeGender();
         String genderGet = ageGender.judgeGender(ygPojo.getSfNumber().toString());
         int ageGet = ageGender.countAge(ygPojo.getSfNumber().toString());
-        System.out.println("获取的年龄为"+genderGet+ageGet);
+        ygPojo.setAge(ageGet);
+        ygPojo.setSex(genderGet);
+        ygMapper.addYgShouDong(ygPojo);
     }
 
 }

@@ -79,8 +79,7 @@ public class shenFenZhengGetAgeGender {
                 age = Integer.parseInt(fyear) - Integer.parseInt(year) - 1;
             }
         }
-        System.out.println("age = " + age);
-        return age;
+       return age;
     }
 
 }

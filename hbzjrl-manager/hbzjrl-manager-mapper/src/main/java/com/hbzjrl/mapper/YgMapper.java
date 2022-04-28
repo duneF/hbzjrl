@@ -41,4 +41,6 @@ public interface YgMapper {
     Integer countByAddress(String address);
     //根据企业查询总条数
     Integer countByQiYe(String factory);
+
+    void addYgShouDong(YgPojo ygPojo);
 }

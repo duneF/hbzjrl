@@ -134,4 +134,11 @@
         where factory like #{factory}
         ORDER by user_id DESC;
     </select>
+<!--手动添加-->
+    <insert id="addYgShouDong" parameterType="com.hbzjrl.pojo.YgPojo">
+        insert into 2022Year(whereHome,name,sex,age,sfNumber,phone,goTime,address,factory,workTime,byCar,workerPrice,workerCarPrice,wokerRemarks,whose,whosePrice,whoseRemarks,totalPrice,createTime)
+        values (#{whereHome},#{name},#{sex},#{age},#{sfNumber},#{phone},#{goTime},#{address},#{factory},#{workTime},#{byCar},#{workerPrice},#{workerCarPrice},#{wokerRemarks},#{whose},#{whosePrice},#{whoseRemarks},#{totalPrice},#{createTime});
+    </insert>
+
+
 </mapper>

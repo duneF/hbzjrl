@@ -37,7 +37,6 @@ public class YgShow {
         if (pageSize < 1) {
             pageSize = 8;
         }
-
         List<YgPojo> list = ygService.findAllByYgTable(pageNum, pageSize);
         count = ygService.count();
         if (pageNum < 0 | pageNum > pagesShuRu) {
@@ -159,6 +158,6 @@ public class YgShow {
     @RequestMapping("/addYgShouDong")
     public String addYgShouDong(YgPojo ygPojo){
         ygService.addYgShouDong(ygPojo);
-        return "";
+        return "/addYgShouDong";
     }
 }
