@@ -2,15 +2,26 @@ package com.hbzjrl.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.hbzjrl.common.NacigatePagesPlus;
+import com.hbzjrl.common.utils.FtpUtil;
 import com.hbzjrl.pojo.YgPojo;
 import com.hbzjrl.service.YgService;
+import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 /***
  *Author: Yc
@@ -142,22 +153,27 @@ public class YgShow {
 
         return "/qiYeList";
     }
+
     //跳转图片添加员工页面
     @RequestMapping("/tiaoZhuanYgAddJsp")
     public String tiaoZhuanYgAddJsp() {
         System.out.println("进入身份证添加员工");
         return "/ygAddYeMian";
     }
+
     //跳转手动添加员工页面
     @RequestMapping("/tiaoZhuanYgAddShouDong")
     public String tiaoZhuanYgAddShouDong() {
         System.out.println("进入手动添加员工");
         return "/addYgShouDong";
     }
+
     //手动添加员工到数据库
     @RequestMapping("/addYgShouDong")
-    public String addYgShouDong(YgPojo ygPojo){
+    public String addYgShouDong(YgPojo ygPojo) {
         ygService.addYgShouDong(ygPojo);
         return "/addYgShouDong";
     }
+
+
 }

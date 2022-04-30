@@ -24,13 +24,14 @@
         var createTimeToday = time.getFullYear() + "-" + (month) + "-" + (day1);
         $('#createTime').val(createTimeToday);
     })
+
 </script>
 <body>
 <nav class="menu-wrap">
     <div class="menu">
         <ul>
             <li>
-                <a href="">
+                <a href="/ygShowAll" >
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>

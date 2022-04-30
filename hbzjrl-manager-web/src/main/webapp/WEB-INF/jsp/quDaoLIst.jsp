@@ -17,7 +17,7 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="">
+                <a href="/ygShowAll" >
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>

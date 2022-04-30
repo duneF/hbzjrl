@@ -130,24 +130,19 @@ public class FtpUtil {
         return result;
     }
 
-    public static void main(String[] args) {
-      /*  try {
+  /*  public static void main(String[] args) {
+        try {
             FileInputStream in = new FileInputStream(new File("\\E:\\桌面临时\\QQ图片20220424214018.jpg"));
             FileOutputStream fileOutputStream = new FileOutputStream("\\E:\\桌面临时\\111.jpg");
             boolean flag = uploadFile("43.138.80.85", 21, "ftpuserzf", "zf123", "/var/ftp/test", "/2022/4/26", "OK3.jpg", in);
             System.out.println(flag);
         }catch (FileNotFoundException e){
             e.printStackTrace();
-        }*/
+        }
 
-//            FileOutputStream outputStream = new FileOutputStream("\\E:\\桌面临时\\11.jpg");
+      //      FileOutputStream outputStream = new FileOutputStream("\\E:\\桌面临时\\11.jpg");
         downLoadFile("43.138.80.85",21,"ftpuserzf","zf123",
                 "/var/ftp/test/2022/4/26","OK3.jpg","\\E:\\桌面临时\\");
-
-
-
-
-
-    }
+    }*/
 
 }

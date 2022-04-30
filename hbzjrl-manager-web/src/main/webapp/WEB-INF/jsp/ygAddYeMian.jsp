@@ -12,13 +12,29 @@
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 </head>
-<script>
+<script type="text/javascript">
     $(document).ready(function () {
         var time = new Date();
         var day = ("0" + (time.getDate() + 1)).slice(-2);
         var month = ("0" + (time.getMonth() + 1)).slice(-2);
         var today = time.getFullYear() + "-" + (month) + "-" + (day);
         $('#date_info').val(today);
+    });
+
+    $(function(){
+        //图片被点击后拉起文件选择框
+        $('#imgBtn').click(function(){
+            $('#currImg').click();
+        });
+        //选取文件后回显当前显示图片
+        $('#currImg').change(function(e){
+            //当前选择的文件
+            var currImg = e.target.files[0];
+            //生成一个图片路径(使用URL.createObjectURL将选择的图片生成一个路径)
+            var imgSrc = URL.createObjectURL(currImg);
+            //更换原图片路径，回显图片
+            $('#imgBtn').attr('src',imgSrc);
+        });
     })
 </script>
 <body>
@@ -26,7 +42,7 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="">
+                <a href="/ygShowAll">
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>
@@ -83,97 +99,114 @@
         /*height: 100px;*/
         position: fixed;
         top: 6%;
-        left: 40%;
+        left: 60%;
+    }
+    div.addHuiXian{
+        position: fixed;
+        top: 6%;
+        left: 20%;
     }
 </style>
+<div class="addHuiXian">
+        <!-- 文件选择框 默认关闭 点击图片后调出 -->
+        <input type="file" name="currImg" id="currImg" style="display: none;"/>
+</div>
 <div class="add">
     <form>
         <table class="table table-hover">
             <thead>
             <tr>
                 <th>身份证添加员工</th>
-                <th>
-                </th>
+
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>渠道</td>
-                <td><input name="" id="" placeholder="" value="张杰人力"/></td>
-            </tr>
-            <tr>
-                <td>手机</td>
-                <td><input name="" id="" placeholder="手机号"/></td>
-            </tr>
-            <%-- 默认取第二天的值--%>
-            <tr>
-                <td>出发日期</td>
-                <td>
-                    <input name="" id="date_info" type="date"/>
-                </td>
-            </tr>
-            <tr>
-                <td>企业</td>
-                <td><input name="" id="" placeholder="输入渠道"/></td>
-            </tr>
-            <tr>
-                <td>合同日期</td>
-                <td>
-                    <select>
-                        <option value="长期">长期</option>
-                        <option value="1个月">1个月</option>
-                        <option value="2个月">2个月</option>
-                        <option selected="selected" value="3个月">3个月</option>
-                        <option value="6个月">6个月</option>
-                        <option value="15天">15天</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>发车</td>
-                <td><input name="" id="" value="自发出"/></td>
-            </tr>
-            <tr>
-                <td>发车补助</td>
-                <td><input name="" id="" value="0.0"/></td>
-            </tr>
-            <tr>
-                <td>员工单价</td>
-                <td><input name="" id="" placeholder="员工单价"/></td>
-            </tr>
-            <tr>
-                <td>员工备注</td>
-                <td><input name="" id="" value="没有其他事项"/></td>
-            </tr>
-            <tr>
-                <td>代理</td>
-                <td><input name="" id="" placeholder="哪个代理" value="直招"/></td>
-            </tr>
-            <tr>
-                <td>代理单价</td>
-                <td><input name="" id="" placeholder="代理单价/总利润"/></td>
-            </tr>
-            <tr>
-                <td>代理备注</td>
-                <td><input name="" id="" value="没有其他事项"/></td>
-            </tr>
-            <tr>
-                <td>总价</td>
-                <td><input name="" id="" placeholder="输入总价/总利润"/></td>
-            </tr>
-            </tbody>
+                <td colspan="2">
+                    <div class="addHuiXian">
+                        <!-- 把图片当作按钮，点击后调出文件选择框 -->
+                        <img id="imgBtn" src="img/2.jpg"  width="500px" height="auto" style="margin-top:1vh ;"  >
+                    </div>
 
-            <tfoot>
-            <th>
-                <button type="reset" id="reset" class="btn btn-sm btn-danger" style="float: left">重写</button>
-            </th>
-            <th>
-                <button type="submit" class="btn btn-success" style="float:right">提交</button>
-            </th>
-            </tfoot>
-        </table>
+                </td>
+</tr>
+<tr>
+    <td>渠道</td>
+    <td><input name="" id="" value="张杰人力"/></td>
+</tr>
+<tr>
+    <td>手机</td>
+    <td><input name="" id="" placeholder="手机号"/></td>
+</tr>
+<%-- 默认取第二天的值--%>
+<tr>
+    <td>出发日期</td>
+    <td>
+        <input name="" id="date_info" type="date"/>
+    </td>
+</tr>
+<tr>
+    <td>企业</td>
+    <td><input name="" id="" placeholder="工厂名字"/></td>
+</tr>
+<tr>
+    <td>合同日期</td>
+    <td>
+        <select>
+            <option value="长期">长期</option>
+            <option value="1个月">1个月</option>
+            <option value="2个月">2个月</option>
+            <option selected="selected" value="3个月">3个月</option>
+            <option value="6个月">6个月</option>
+            <option value="15天">15天</option>
+        </select>
+    </td>
+</tr>
+<tr>
+    <td>发车</td>
+    <td><input name="" id="" value="自发出"/></td>
+</tr>
+<tr>
+    <td>发车补助</td>
+    <td><input name="" id="" value="0.0"/></td>
+</tr>
+<tr>
+    <td>员工单价</td>
+    <td><input name="" id="" placeholder="员工单价"/></td>
+</tr>
+<tr>
+    <td>员工备注</td>
+    <td><input name="" id="" value="无"/></td>
+</tr>
+<tr>
+    <td>代理</td>
+    <td><input name="" id="" placeholder="哪个代理" value="直招"/></td>
+</tr>
+<tr>
+    <td>代理单价</td>
+    <td><input name="" id="" placeholder="代理单价/总利润"/></td>
+</tr>
+<tr>
+    <td>代理备注</td>
+    <td><input name="" id="" value="无"/></td>
+</tr>
+<tr>
+    <td>总价</td>
+    <td><input name="" id="" placeholder="输入总价/总利润"/></td>
+</tr>
+</tbody>
 
-    </form>
+<tfoot>
+<th>
+    <button type="reset" id="reset" class="btn btn-sm btn-danger" style="float: left">重写</button>
+</th>
+<th>
+    <button type="submit" class="btn btn-success" style="float:right">提交</button>
+</th>
+</tfoot>
+</table>
+
+</form>
 </div>
 </body>
 </html>
