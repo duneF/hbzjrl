@@ -63,61 +63,64 @@
         <spring-boot-starter-aop>2.6.6</spring-boot-starter-aop>
         <lombok>1.18.22</lombok>
         <jsqlparser>4.4</jsqlparser>
+        <tencentcloud-sdk-java>4.0.11</tencentcloud-sdk-java>
+        <tencentcloud-sdk-java-common>3.1.498</tencentcloud-sdk-java-common>
+        <commons-logging>1.2</commons-logging>
+        <okhttp>2.7.5</okhttp>
+        <logging-interceptor>2.7.5</logging-interceptor>
+        <okio>1.12.0</okio>
+        <jaxb-api>2.3.0</jaxb-api>
+        <ini4j>0.5.4</ini4j>
+        <junit>4.13.2</junit>
+        <axis>1.4</axis>
     </properties>
 
-<dependencies>
-    <dependency>
-        <groupId>com.tencentcloudapi</groupId>
-        <artifactId>tencentcloud-sdk-java</artifactId>
-        <version>4.0.11</version>
-    </dependency>
-    <dependency>
-        <groupId>com.tencentcloudapi</groupId>
-        <artifactId>tencentcloud-sdk-java-common</artifactId>
-        <version>3.1.498</version>
-    </dependency>
-    <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>1.2</version>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.okhttp</groupId>
-        <artifactId>okhttp</artifactId>
-        <version>2.7.5</version>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.okhttp</groupId>
-        <artifactId>logging-interceptor</artifactId>
-        <version>2.7.5</version>
-    </dependency>
-    <dependency>
-        <groupId>com.squareup.okio</groupId>
-        <artifactId>okio</artifactId>
-        <version>1.12.0</version>
-    </dependency>
-    <dependency>
-        <groupId>javax.xml.bind</groupId>
-        <artifactId>jaxb-api</artifactId>
-        <version>2.3.0</version>
-    </dependency>
-    <dependency>
-        <groupId>org.ini4j</groupId>
-        <artifactId>ini4j</artifactId>
-        <version>0.5.4</version>
-    </dependency>
-    <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.13.2</version>
-        <scope>compile</scope>
-    </dependency>
-</dependencies>
     <!--    只定义依赖的版本,并不实际依赖-->
     <dependencyManagement>
 
         <dependencies>
-
+            <!--    身份证OCR-->
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java</artifactId>
+                <version>${tencentcloud-sdk-java}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.tencentcloudapi</groupId>
+                <artifactId>tencentcloud-sdk-java-common</artifactId>
+                <version>${tencentcloud-sdk-java-common}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${commons-logging}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp</groupId>
+                <artifactId>logging-interceptor</artifactId>
+                <version>${logging-interceptor}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>${okio}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.xml.bind</groupId>
+                <artifactId>jaxb-api</artifactId>
+                <version>${jaxb-api}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ini4j</groupId>
+                <artifactId>ini4j</artifactId>
+                <version>${ini4j}</version>
+            </dependency>
+            <!-- tomcat-->
             <dependency>
                 <groupId>org.apache.tomcat</groupId>
                 <artifactId>tomcat-annotations-api</artifactId>
@@ -177,8 +180,8 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
-                <scope>test</scope>
+                <version>${junit}</version>
+                <scope>compile</scope>
             </dependency>
             <!--  junit5需要enginne-->
             <dependency>
@@ -305,7 +308,13 @@
                 <artifactId>jsqlparser</artifactId>
                 <version>${jsqlparser}</version>
             </dependency>
-<!--            freemarker模板-->
+            <!--            image转base64-->
+            <dependency>
+                <groupId>org.apache.axis</groupId>
+                <artifactId>axis</artifactId>
+                <version>${axis}</version>
+            </dependency>
+            <!--            freemarker模板-->
             <dependency>
                 <groupId>org.freemarker</groupId>
                 <artifactId>freemarker</artifactId>
@@ -318,11 +327,11 @@
                 <version>${javax.servlet-api}</version>
                 <scope>provided</scope>
             </dependency>
-                <dependency>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-aop</artifactId>
-                    <version>${spring-boot-starter-aop}</version>
-                </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring-boot-starter-aop}</version>
+            </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>

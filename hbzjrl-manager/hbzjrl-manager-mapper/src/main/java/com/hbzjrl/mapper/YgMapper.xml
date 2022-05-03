@@ -139,6 +139,9 @@
         insert into 2022Year(whereHome,name,sex,age,sfNumber,phone,goTime,address,factory,workTime,byCar,workerPrice,workerCarPrice,wokerRemarks,whose,whosePrice,whoseRemarks,totalPrice,createTime)
         values (#{whereHome},#{name},#{sex},#{age},#{sfNumber},#{phone},#{goTime},#{address},#{factory},#{workTime},#{byCar},#{workerPrice},#{workerCarPrice},#{wokerRemarks},#{whose},#{whosePrice},#{whoseRemarks},#{totalPrice},#{createTime});
     </insert>
-
-
+<!--通过身份证传参-->
+    <insert id="addYgTuPian" parameterType="com.hbzjrl.pojo.YgPojo">
+        insert into 2022Year(whereHome,name,sex,age,sfNumber,phone,goTime,address,factory,workTime,byCar,workerPrice,workerCarPrice,wokerRemarks,whose,whosePrice,whoseRemarks,totalPrice,createTime)
+        values (#{whereHome},#{name},#{sex},#{age},#{sfNumber},#{phone},#{goTime},#{address},#{factory},#{workTime},#{byCar},#{workerPrice},#{workerCarPrice},#{wokerRemarks},#{whose},#{whosePrice},#{whoseRemarks},#{totalPrice},#{createTime});
+    </insert>
 </mapper>

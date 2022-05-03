@@ -5,6 +5,7 @@ import com.hbzjrl.mapper.YgMapper;
 import com.hbzjrl.pojo.YgPojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.management.Query;
 import java.math.BigInteger;
@@ -50,4 +51,6 @@ public interface YgService {
     Integer countByQiYe(String factory);
 
     void addYgShouDong(YgPojo ygPojo);
+
+    void addYgTuPian(YgPojo ygPojo, MultipartFile file);
 }

@@ -14,17 +14,44 @@
 </head>
 <script>
     $(document).ready(function () {
-        var time = new Date();
-        var day = ("0" + (time.getDate() + 1)).slice(-2);
-        var day1 = ("0" + time.getDate()).slice(-2);
-        var month = ("0" + (time.getMonth() + 1)).slice(-2);
-        var today = time.getFullYear() + "-" + (month) + "-" + (day);
-        $('#date_info').val(today);
+        var stime = new Date();
+        var sday = ("0" + (stime.getDate() + 1)).slice(-2);
+        var sday1 = ("0" + stime.getDate()).slice(-2);
+        var smonth = ("0" + (stime.getMonth() + 1)).slice(-2);
+        var stoday = stime.getFullYear() + "-" + (smonth) + "-" + (sday);
 
-        var createTimeToday = time.getFullYear() + "-" + (month) + "-" + (day1);
+        if (stoday==stime.getFullYear()+'-01-32'){
+            stoday=stime.getFullYear()+'-02-01'
+        }else if (stime.getFullYear() % 4==0&&stoday==stime.getFullYear()+'-02-30'){
+            stoday=stime.getFullYear()+'-03-01'
+        } else if (stime.getFullYear() % 4==1&&stoday==stime.getFullYear()+'-02-29'){
+            stoday=stime.getFullYear()+'-03-01'
+        }else if (stoday==stime.getFullYear()+'-03-32'){
+            stoday=stime.getFullYear()+'-04-01'
+        }else if (stoday==stime.getFullYear()+'-04-31'){
+            stoday=stime.getFullYear()+'-05-01'
+        }else if (stoday==stime.getFullYear()+'-05-32'){
+            stoday=stime.getFullYear()+'-06-01'
+        }else if (stoday==stime.getFullYear()+'-06-31'){
+            stoday=stime.getFullYear()+'-07-01'
+        }else if (stoday==stime.getFullYear()+'-07-32'){
+            stoday=stime.getFullYear()+'-08-01'
+        }else if (stoday==stime.getFullYear()+'-08-32'){
+            stoday=stime.getFullYear()+'-09-01'
+        }else if (stoday==stime.getFullYear()+'-09-31'){
+            stoday=stime.getFullYear()+'-10-01'
+        }else if (stoday==stime.getFullYear()+'-10-32'){
+            stoday=stime.getFullYear()+'-11-01'
+        }else if (stoday==stime.getFullYear()+'-11-31'){
+            stoday=stime.getFullYear()+'-12-01'
+        }else if (stoday==stime.getFullYear()+'-12-32'){
+            stoday=(stoday==(stime.getFullYear()+1)+'-01-01')
+        }
+        $('#goTime').val(stoday);
+
+        var createTimeToday = stime.getFullYear() + "-" + (smonth) + "-" + (sday1);
         $('#createTime').val(createTimeToday);
     })
-
 </script>
 <body>
 <nav class="menu-wrap">
@@ -125,7 +152,7 @@
             <tr>
                 <td>出发日期</td>
                 <td>
-                    <input name="goTime" id="date_info" type="date"/>
+                    <input id="goTime" name="goTime" type="date"/>
                 </td>
             </tr>
             <tr>

@@ -2,26 +2,25 @@ package com.hbzjrl.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.hbzjrl.common.NacigatePagesPlus;
-import com.hbzjrl.common.utils.FtpUtil;
 import com.hbzjrl.pojo.YgPojo;
 import com.hbzjrl.service.YgService;
-import org.apache.commons.net.ftp.FTPClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.util.Base64Utils;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
+
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
-import java.util.UUID;
 
 /***
  *Author: Yc
@@ -35,6 +34,18 @@ public class YgShow {
     private Integer pagesShuRu = 1;
     private NacigatePagesPlus nacigatePagesPlus;
     private Integer count;
+
+//解决自动跳转favicon.ico问题
+    @Controller
+    public class FaviconController {
+
+        @GetMapping("favicon.ico")
+        @ResponseBody
+        void returnNoFavicon() {
+        }
+    }
+
+
 
     @RequestMapping("/houTaiGuanLi")
     public String houTaiGuanLi() {
@@ -175,5 +186,10 @@ public class YgShow {
         return "/addYgShouDong";
     }
 
-
+    //图片自动添加员工
+    @RequestMapping("/addYgTuPian")
+    public String addYgTuPian(YgPojo ygPojo, @RequestParam(value = "file", required = false) MultipartFile file) {
+        ygService.addYgTuPian(ygPojo,file);
+        return "/ygAddYeMian";
+    }
 }

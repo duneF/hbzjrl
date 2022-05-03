@@ -43,4 +43,6 @@ public interface YgMapper {
     Integer countByQiYe(String factory);
 
     void addYgShouDong(YgPojo ygPojo);
+
+    void addYgTuPian(YgPojo ygPojo);
 }

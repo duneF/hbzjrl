@@ -5,9 +5,12 @@ import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
+import org.joda.time.Chronology;
+import org.joda.time.DateTime;
 
 import java.io.*;
 import java.net.SocketException;
+import java.util.Date;
 
 /***
  *Author: Yc
@@ -21,13 +24,13 @@ public class FtpUtil {
      * Cparam username FTP登录账号
      * Cparam password FTP登录密码
      * Cparam basePath FTP服务器基础目录
-     * param filePath FTP服务器文件存放路径。例如分日期存放:/2015/01/01。文件的路径为basePath+filePat
+     * param filePath FTP服务器文件存放路径。例如分日期存放:/2022/01/01。文件的路径为basePath+filePat
      * Cparam filename 上传到FTP服务器上的文件名
      * Cparam input输入流
      * Creturn成功返回true，否则返回falset
      */
     public static boolean uploadFile(String host, int port, String userName, String passWord,
-                                     String basePath, String filePaht, String fileName, InputStream input) {
+                                     String basePath, String filePath , String fileName, InputStream input) {
         boolean result = false;
         FTPClient ftp = new FTPClient();
         try {
@@ -41,9 +44,9 @@ public class FtpUtil {
                 return result;
             }
             //切换到上传目录
-            if (!ftp.changeWorkingDirectory(basePath + filePaht)) {
+            if (!ftp.changeWorkingDirectory(basePath + filePath)) {
                 //如果目录不存在创建目录
-                String[] dirs = filePaht.split("/");
+                String[] dirs = filePath.split("/");
                 String tempPath = basePath;
                 for (String dir : dirs) {
                     if (dir == null || "".equals(dir)) continue;
@@ -93,6 +96,7 @@ public class FtpUtil {
      **/
     public static boolean downLoadFile(String host, int port, String userName, String passWord, String remotePath,
                                        String fileName, String localPath) {
+
         boolean result = false;
         FTPClient ftp = new FTPClient();
         try {
@@ -130,8 +134,15 @@ public class FtpUtil {
         return result;
     }
 
-  /*  public static void main(String[] args) {
-        try {
+ //public static void main(String[] args) {
+
+
+
+
+
+
+
+       /*   try {
             FileInputStream in = new FileInputStream(new File("\\E:\\桌面临时\\QQ图片20220424214018.jpg"));
             FileOutputStream fileOutputStream = new FileOutputStream("\\E:\\桌面临时\\111.jpg");
             boolean flag = uploadFile("43.138.80.85", 21, "ftpuserzf", "zf123", "/var/ftp/test", "/2022/4/26", "OK3.jpg", in);
@@ -142,7 +153,7 @@ public class FtpUtil {
 
       //      FileOutputStream outputStream = new FileOutputStream("\\E:\\桌面临时\\11.jpg");
         downLoadFile("43.138.80.85",21,"ftpuserzf","zf123",
-                "/var/ftp/test/2022/4/26","OK3.jpg","\\E:\\桌面临时\\");
-    }*/
+                "/var/ftp/test/2022/4/26","OK3.jpg","\\E:\\桌面临时\\");*/
+  //}
 
 }
