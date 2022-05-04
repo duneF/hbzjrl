@@ -135,6 +135,11 @@
         top: 6%;
         left: 20%;
     }
+    /*模态框利用轮播,添加半透明遮罩层*/
+    .modal{
+        position: absolute;
+        background: rgba(0,0,0,0.0);
+    }
 </style>
 
 <form action="/addYgTuPian" method="post" enctype="multipart/form-data">
@@ -235,12 +240,28 @@
                 <button type="reset" id="reset" class="btn  btn-danger" style="float: left">重写</button>
             </th>
             <th>
-                <button type="submit" class="btn btn-success "  style="float:right">
+                <button type="submit" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal" style="float:right">
                     提交
                 </button>
             </th>
             </tfoot>
         </table>
+        <!-- 模态框利用轮播,添加半透明遮罩层 -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog modal-fullscreen">
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    <div class="spinner-grow text-muted"></div>
+                    <div class="spinner-grow text-primary"></div>
+                    <div class="spinner-grow text-success"></div>
+                    <div class="spinner-grow text-info"></div>
+                    <div class="spinner-grow text-warning"></div>
+                    <div class="spinner-grow text-danger"></div>
+                    <div class="spinner-grow text-secondary"></div>
+                    <div class="spinner-grow text-dark"></div>
+                    <div class="spinner-grow text-light"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </form>
 </body>
