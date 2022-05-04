@@ -182,6 +182,12 @@ public class YgShow {
     //手动添加员工到数据库
     @RequestMapping("/addYgShouDong")
     public String addYgShouDong(YgPojo ygPojo) {
+        System.out.println("进入手动添加 controller");
+        System.out.println("ygPoJo"+ygPojo.toString());
+        if (ygPojo.getFactory() == null&&ygPojo.getName()==null|ygPojo.getFactory()==""&&ygPojo.getName()=="") {
+            System.out.println("ygPojo为空");
+            return "/addYgShouDong";
+        }
         ygService.addYgShouDong(ygPojo);
         return "/addYgShouDong";
     }

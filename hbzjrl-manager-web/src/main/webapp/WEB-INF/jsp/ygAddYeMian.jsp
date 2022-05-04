@@ -47,7 +47,6 @@
             today=(today==(time.getFullYear()+1)+'-01-01')
         }
         $('#goTime').val(today);
-
         var createTimeToday = time.getFullYear() + "-" + (month) + "-" + (day1);
         $('#createTime').val(createTimeToday);
     });
@@ -120,12 +119,10 @@
     body {
         background: #ced4da;
     }
-
     * {
         margin: 0;
         padding: 0;
     }
-
     div.add {
         /*width: 100px;*/
         /*height: 100px;*/
@@ -133,7 +130,6 @@
         top: 6%;
         left: 60%;
     }
-
     div.addHuiXian {
         position: fixed;
         top: 6%;
@@ -170,7 +166,7 @@
             </tr>
             <tr>
                 <td>手机</td>
-                <td><input name="phone"    placeholder="手机号"/></td>
+                <td><input name="phone"    placeholder="手机号" required/></td>
             </tr>
             <%-- 默认取第二天的值--%>
             <tr>
@@ -181,7 +177,7 @@
             </tr>
             <tr>
                 <td>企业</td>
-                <td><input name="factory"    placeholder="工厂名字"/></td>
+                <td><input name="factory" placeholder="工厂名字" required/></td>
             </tr>
             <tr>
                 <td>合同日期</td>

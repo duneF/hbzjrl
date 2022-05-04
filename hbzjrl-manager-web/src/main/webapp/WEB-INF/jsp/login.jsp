@@ -35,7 +35,7 @@
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-lock"></span></span>
-                                <input type="password" id="nloginpwd" name="password" class="form-control"
+                                <input type="password" id="nloginpwd"   name="password" class="form-control"
                                        placeholder="密码" required>
                             </div>
                         </div>

@@ -134,11 +134,11 @@
             </tr>
             <tr>
                 <td>姓名</td>
-                <td><input id="name" name="name" placeholder="姓名"/></td>
+                <td><input id="name" name="name" placeholder="姓名" required/></td>
             </tr>
             <tr>
                 <td>身份证号</td>
-                <td><input id="sfNumber" name="sfNumber" minlength="15" maxlength="18" placeholder="身份证号18或15位"/></td>
+                <td><input id="sfNumber" name="sfNumber" minlength="15" maxlength="18" placeholder="身份证号18或15位" required/></td>
             </tr>
             <tr>
                 <td>住址</td>
@@ -146,7 +146,7 @@
             </tr>
             <tr>
                 <td>手机</td>
-                <td><input id="phone" name="phone" placeholder="手机号"/></td>
+                <td><input id="phone" name="phone" placeholder="手机号" required/></td>
             </tr>
             <%-- 默认取第二天的值--%>
             <tr>
@@ -157,7 +157,7 @@
             </tr>
             <tr>
                 <td>企业</td>
-                <td><input id="factory" name="factory" placeholder="企业名称"/></td>
+                <td><input id="factory" name="factory" placeholder="企业名称" required/></td>
             </tr>
             <tr>
                 <td>合同日期</td>
