@@ -155,7 +155,7 @@
                 <td colspan="2">
                     <div class="addHuiXian">
                         <!-- 把图片当作按钮，点击后调出文件选择框 -->
-                        <img id="imgBtn"   src="img/2.jpg" width="500px" height="auto" style="margin-top:1vh ;">
+                        <img id="imgBtn"   src="img/2.jpg" width="500px" height="auto"  style="margin-top:1vh; background: blue">
                     </div>
 
                 </td>
@@ -166,7 +166,7 @@
             </tr>
             <tr>
                 <td>手机</td>
-                <td><input name="phone"    placeholder="手机号" required/></td>
+                <td><input name="phone"    placeholder="手机号"/></td>
             </tr>
             <%-- 默认取第二天的值--%>
             <tr>
@@ -194,7 +194,7 @@
             </tr>
             <tr>
                 <td>发车</td>
-                <td><input name="byCar"   value="自发出"/></td>
+                <td><input name="byCar"   value="自发车"/></td>
             </tr>
             <tr>
                 <td>发车补助</td>
@@ -235,7 +235,9 @@
                 <button type="reset" id="reset" class="btn  btn-danger" style="float: left">重写</button>
             </th>
             <th>
-                <button type="submit" class="btn btn-success" style="float:right">提交</button>
+                <button type="submit" class="btn btn-success "  style="float:right">
+                    提交
+                </button>
             </th>
             </tfoot>
         </table>

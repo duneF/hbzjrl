@@ -146,7 +146,7 @@
             </tr>
             <tr>
                 <td>手机</td>
-                <td><input id="phone" name="phone" placeholder="手机号" required/></td>
+                <td><input id="phone" name="phone" placeholder="手机号"/></td>
             </tr>
             <%-- 默认取第二天的值--%>
             <tr>
