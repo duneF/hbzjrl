@@ -64,15 +64,11 @@ public class YgServiceImp implements YgService {
 
     @Override
     public void ygUpdateIng(YgPojo ygPojo) {
-        System.out.println("进入service Imp");
-        System.out.println(ygPojo.toString());
-
         ygMapper.ygUpdateIng(ygPojo);
     }
 
     @Override
     public void deleteById(Integer id) {
-        System.out.println("进入deleteByID ServiceImp");
         ygMapper.deleteById(id);
     }
 
@@ -100,7 +96,6 @@ public class YgServiceImp implements YgService {
 
     @Override
     public List<YgPojo> ygFIndByName(String name) {
-        System.out.println("进入按姓名Service" + name);
         Map<String, Object> map = new HashMap<>();
         name = "%" + name + "%";
         map.put("name", name);
@@ -115,7 +110,6 @@ public class YgServiceImp implements YgService {
 
     @Override
     public List<YgPojo> ygFIndByPhone(String phone) {
-        System.out.println("进入按手机Service" + phone);
         Map<String, Object> map = new HashMap<>();
         phone = "%" + phone + "%";
         map.put("phone", phone);
@@ -130,7 +124,6 @@ public class YgServiceImp implements YgService {
 
     @Override
     public List<YgPojo> ygFIndByAddress(String address) {
-        System.out.println("进入按地址Service" + address);
         Map<String, Object> map = new HashMap<>();
         address = "%" + address + "%";
         map.put("address", address);
@@ -145,7 +138,6 @@ public class YgServiceImp implements YgService {
 
     @Override
     public List<YgPojo> ygFindByQiYe(String factory) {
-        System.out.println("进入按企业Service" + factory);
         Map<String, Object> map = new HashMap<>();
         factory = "%" + factory + "%";
         map.put("factory", factory);
@@ -164,7 +156,6 @@ public class YgServiceImp implements YgService {
 
     @Override
     public void addYgTuPian(YgPojo ygPojo, MultipartFile file) {
-        System.out.println("进入图片AddServiceImp");
         //获取文件名
         String filename = file.getOriginalFilename();
         //获取文件的后缀名

@@ -12,6 +12,9 @@
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="hbzjrl-manager-web" />
+          <element id="library" level="application" name="jquery" />
+          <element id="library" level="application" name="bootstrap.bundle" />
+          <element id="library" level="application" name="bootstrap" />
         </element>
         <element id="directory" name="lib">
           <element id="archive" name="hbzjrl-common-1.0-SNAPSHOT.jar">
@@ -128,6 +131,11 @@
           <element id="archive" name="hbzjrl-manager-1.0-SNAPSHOT.jar">
             <element id="module-output" name="hbzjrl-manager" />
           </element>
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.1.68.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:4.1.68.Final" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper-jute:3.6.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
         </element>
       </element>
       <element id="directory" name="META-INF">

@@ -55,7 +55,6 @@ public class YgShow {
     @RequestMapping("/ygShowAll")
     public String findAllByYgTable(Model model, @RequestParam(defaultValue = "1") Integer pageNum, @RequestParam(defaultValue = "8") Integer pageSize) {
         nacigatePagesPlus = new NacigatePagesPlus();
-        System.out.println(pageNum + "进入findALl" + pageSize);
         if (pageSize < 1) {
             pageSize = 8;
         }
@@ -83,8 +82,6 @@ public class YgShow {
     //根据ID查找
     @RequestMapping("/ygUpdateFindById")
     public String ygUpdateFindById(Model model, YgPojo ygPojo) {
-        System.out.println("进入FIndById");
-        System.out.println(ygPojo.toString());
         int id = ygPojo.getUser_id();
         ygPojo = ygService.ygUpdateFindById(id);
         model.addAttribute("ygPojo", ygPojo);
@@ -94,7 +91,6 @@ public class YgShow {
     //根据ID修改
     @RequestMapping("/ygUpdateIng")
     public String ygUpdateIng(YgPojo ygPojo) {
-        System.out.println("根据ID进入更新");
         ygService.ygUpdateIng(ygPojo);
         return "redirect:/ygShowAll";
     }
@@ -103,7 +99,6 @@ public class YgShow {
     @RequestMapping("/deleteById")
     public String deleteById(YgPojo ygPojo) {
         int id = ygPojo.getUser_id();
-        System.out.println("根据ID进入删除" + id);
         ygService.deleteById(id);
         return "redirect:/ygShowAll";
     }
@@ -111,7 +106,6 @@ public class YgShow {
     //根据渠道查找
     @RequestMapping("/ygFindByQuDao")
     public String ygFindByQuDao(Model model, YgPojo ygPojo) {
-        System.out.println("进入按渠道查找" + ygPojo.getWhereHome());
         List<YgPojo> list = ygService.ygFindByQuDao(ygPojo.getWhereHome());
         count = ygService.countByWhereHome(ygPojo.getWhereHome());
         model.addAttribute("count", count);
@@ -123,7 +117,6 @@ public class YgShow {
     //根据姓名查找
     @RequestMapping("/ygFindByName")
     public String ygFIndByName(Model model, YgPojo ygPojo) {
-        System.out.println("进入按姓名查找" + ygPojo.getName());
         List<YgPojo> list = ygService.ygFIndByName(ygPojo.getName());
         count = ygService.countByName(ygPojo.getName());
         model.addAttribute("count", count);
@@ -135,7 +128,6 @@ public class YgShow {
     //根据手机查找
     @RequestMapping("/ygFIndByPhone")
     public String ygFIndByPhone(Model model, String phoneToString) {
-        System.out.println("进入按手机查找" + phoneToString);
         List<YgPojo> list = ygService.ygFIndByPhone(phoneToString);
         count = ygService.conuntByPhone(phoneToString);
         model.addAttribute("count", count);
@@ -146,7 +138,6 @@ public class YgShow {
     //根据地址查找
     @RequestMapping("/ygFIndByAddress")
     public String ygFIndByAddress(Model model, String address) {
-        System.out.println("进入按地址查找" + address);
         List<YgPojo> list = ygService.ygFIndByAddress(address);
         count = ygService.countByAddress(address);
         model.addAttribute("count", count);
@@ -156,7 +147,6 @@ public class YgShow {
 
     @RequestMapping("/ygFindByQiYe")
     public String ygFindByQiYe(Model model, String factory) {
-        System.out.println("进入按手机查找" + factory);
         List<YgPojo> list = ygService.ygFindByQiYe(factory);
         count = ygService.countByQiYe(factory);
         model.addAttribute("count", count);
@@ -168,24 +158,19 @@ public class YgShow {
     //跳转图片添加员工页面
     @RequestMapping("/tiaoZhuanYgAddJsp")
     public String tiaoZhuanYgAddJsp() {
-        System.out.println("进入身份证添加员工");
         return "/ygAddYeMian";
     }
 
     //跳转手动添加员工页面
     @RequestMapping("/tiaoZhuanYgAddShouDong")
     public String tiaoZhuanYgAddShouDong() {
-        System.out.println("进入手动添加员工");
         return "/addYgShouDong";
     }
 
     //手动添加员工到数据库
     @RequestMapping("/addYgShouDong")
     public String addYgShouDong(YgPojo ygPojo) {
-        System.out.println("进入手动添加 controller");
-        System.out.println("ygPoJo"+ygPojo.toString());
         if (ygPojo.getFactory() == null&&ygPojo.getName()==null|ygPojo.getFactory()==""&&ygPojo.getName()=="") {
-            System.out.println("ygPojo为空");
             return "/addYgShouDong";
         }
         ygService.addYgShouDong(ygPojo);

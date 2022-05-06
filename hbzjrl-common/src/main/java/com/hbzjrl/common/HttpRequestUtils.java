@@ -66,7 +66,6 @@ public class HttpRequestUtils {
                     }
                     //把json字符串转换成json对象
                     object = new JSONObject(str);
-                    System.out.println("OBJECT-LIB" + object);
                 } catch (Exception e) {
                     logger.error("post请求失败：" + url, e);
                 }

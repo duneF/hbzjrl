@@ -45,6 +45,7 @@
                 <configuration>
                     <prot>8080</prot>
                     <path>/</path>
+
                 </configuration>
             </plugin>
         </plugins>

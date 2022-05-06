@@ -31,9 +31,6 @@ public class NacigatePagesPlus {
             }
         }
 
-        System.out.println(start);
-        System.out.println(end);
-
         int[] navs = new int[totalPage < navSize ? totalPage : navSize];
         for (int i = start, j = 0; i <= end; i++, j++) {
             navs[j] = i;

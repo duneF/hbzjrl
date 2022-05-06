@@ -16,7 +16,6 @@ public class shenFenZhengGetAgeGender {
      * @return
      */
     public static String judgeGender(String idNumber) throws IllegalArgumentException{
-        //  System.out.println(idNumber.length());
         if(idNumber.length() != 18 && idNumber.length() != 15){
             throw new IllegalArgumentException("身份证号长度错误");
         }
@@ -30,7 +29,6 @@ public class shenFenZhengGetAgeGender {
             char c = idNumber.charAt(idNumber.length() - 1);
             gender = Integer.parseInt(String.valueOf(c));
         }
-        //System.out.println("gender = " + gender);
         if(gender % 2 == 1){
             return "男";
         }else{
