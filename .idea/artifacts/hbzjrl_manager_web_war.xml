@@ -7,7 +7,7 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="hbzjrl-manager-web-1.0-SNAPSHOT.war">
+    <root id="archive" name="hbzjrl.war">
       <element id="artifact" artifact-name="hbzjrl-manager-web:war exploded" />
     </root>
   </artifact>

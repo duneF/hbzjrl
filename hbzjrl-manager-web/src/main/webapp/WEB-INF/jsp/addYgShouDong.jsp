@@ -6,8 +6,8 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/stvle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
@@ -58,25 +58,25 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="/ygShowAll" >
+                <a href="${pageContext.request.contextPath}/ygShowAll" >
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-user fa-lg"></i>
-                    <span class="nav-text">登录</span>
+                    <span class="nav-text">财务</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-envelope-o fa-lg"></i>
                     <span class="nav-text">联系</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-heart-o fa-lg"></i>
                     <span class="nav-text">收藏</span>
                 </a>
@@ -93,7 +93,7 @@
 <header>
     <div class="px-3 py-2 border-bottom mb-3">
         <div>
-           <span style="float: right"><button onClick="window.location.href='/tiaoZhuanYgAddJsp'"
+           <span style="float: right"><button onClick="window.location.href='${pageContext.request.contextPath}/tiaoZhuanYgAddJsp'"
                                               class="btn btn-primary">通过身份证添加</button></span>
         </div>
     </div>
@@ -119,7 +119,7 @@
 
 </style>
 <div class="add">
-    <form action="/addYgShouDong" method="post">
+    <form action="${pageContext.request.contextPath}/addYgShouDong" method="post">
         <table class="table table-hover">
             <thead>
             <tr>

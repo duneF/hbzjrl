@@ -35,7 +35,7 @@ label
         }
 
         .box {
-            background: url(/image/login.jpg) no-repeat center center;
+            background: url(../image/login.jpg) no-repeat center center;
             background-size: cover;
 
             margin: 0 auto;

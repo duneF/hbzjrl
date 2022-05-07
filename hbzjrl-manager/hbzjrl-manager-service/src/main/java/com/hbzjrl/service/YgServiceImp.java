@@ -155,7 +155,8 @@ public class YgServiceImp implements YgService {
     }
 
     @Override
-    public void addYgTuPian(YgPojo ygPojo, MultipartFile file) {
+    public void addYgTuPian(YgPojo ygPojo, MultipartFile file) throws IOException {
+       InputStream inp= file.getInputStream();
         //获取文件名
         String filename = file.getOriginalFilename();
         //获取文件的后缀名
@@ -176,10 +177,11 @@ public class YgServiceImp implements YgService {
         try {
             //读入本地电脑路径
             FileInputStream in = new FileInputStream(new File(urlInPut));
+
             //调用封装ftpUtil上传工具
             FtpUtil ftpUtil = new FtpUtil();
             //调用上传工具上传方法,读取properties文件引入的参数@Value("${FTP_ADDRESS}") private String FTP_ADDRESS;
-            ftpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, filePath, newImageName, in);
+            ftpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, filePath, newImageName, inp);
             //拼接公网图片路径等待传入OCR识别
             String ORCURL = IMAGE_BASE_URL + filePath + "/" + newImageName;
             //创建OCR对象

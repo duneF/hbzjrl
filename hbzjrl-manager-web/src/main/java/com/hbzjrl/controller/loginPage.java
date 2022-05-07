@@ -30,7 +30,7 @@ import java.util.Map;
  *@Description:
  */
 @Controller
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/hbzjrl")
 public class loginPage {
 
     @Autowired
@@ -54,7 +54,7 @@ public class loginPage {
 
         if (userDengLu!=null){
             map.put("redirect","/show/ygShowAll");
-            resp.sendRedirect("/ygShowAll");
+            resp.sendRedirect("/hbzjrl/ygShowAll");
             return map;
         }
         map.put("msg","账号密码错误");

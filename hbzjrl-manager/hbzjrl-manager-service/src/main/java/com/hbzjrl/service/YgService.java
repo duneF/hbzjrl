@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.management.Query;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.List;
@@ -52,5 +53,5 @@ public interface YgService {
 
     void addYgShouDong(YgPojo ygPojo);
 
-    void addYgTuPian(YgPojo ygPojo, MultipartFile file);
+    void addYgTuPian(YgPojo ygPojo, MultipartFile file) throws IOException;
 }

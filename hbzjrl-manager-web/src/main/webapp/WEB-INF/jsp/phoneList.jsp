@@ -6,8 +6,8 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/stvle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
@@ -17,27 +17,27 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="/ygShowAll" >
+                <a href="${pageContext.request.contextPath}/ygShowAll" >
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-user fa-lg"></i>
-                    <span class="nav-text">登录</span>
+                    <span class="nav-text">财务</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-envelope-o fa-lg"></i>
-                    <span class="nav-text">联系</span>
+                    <span class="nav-text">待定</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-heart-o fa-lg"></i>
-                    <span class="nav-text">收藏</span>
+                    <span class="nav-text">待定</span>
                 </a>
             </li>
             <li></li>
@@ -53,36 +53,36 @@
     <div class="px-3 py-2 border-bottom mb-3">
         <div class="container  d-flex flex-wrap justify-content-center">
             <div class="row">
-                <form class="well form-search" action="/ygFindByQuDao">
+                <form class="well form-search" action="${pageContext.request.contextPath}/ygFindByQuDao">
                     <input name="whereHome" type="search" class="input-medium search-query" placeholder="按渠道查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>渠道</button>
                 </form>
             </div>
             <div class="row">
-                <form class="well form-search" action="/ygFindByName" method="post">
+                <form class="well form-search" action="${pageContext.request.contextPath}/ygFindByName" method="post">
                     <input name="name" type="search" class="input-medium search-query" placeholder="按姓名查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>姓名</button>
                 </form>
             </div>
             <div class="text-end">
-                <form class="well form-search" action="/ygFIndByPhone">
+                <form class="well form-search" action="${pageContext.request.contextPath}/ygFIndByPhone">
                     <input name="phoneToString" type="search" class="input-medium search-query" placeholder="按手机查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>手机</button>
                 </form>
             </div>
             <div class="text-end">
-                <form class="well form-search" action="ygFIndByAddress">
+                <form class="well form-search" action="${pageContext.request.contextPath}/ygFIndByAddress">
                     <input name="address" type="search" class="input-medium search-query" placeholder="按地址查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>地址</button>
                 </form>
             </div>
             <div class="text-end">
-                <form class="well form-search" action="ygFindByQiYe">
+                <form class="well form-search" action="${pageContext.request.contextPath}/ygFindByQiYe">
                     <input name="factory" type="search" class="input-medium search-query" placeholder="按企业查询">
                     <button class="btn btn-primary" type="submit"><i class="icon-search"></i>企业</button>
                 </form>
             </div>
-            &nbsp;<span style="float: right"><button onClick="window.location.href='/tiaoZhuanYgAddJsp'" class="btn btn-success">添加</button></span>
+            &nbsp;<span style="float: right"><button onClick="window.location.href='${pageContext.request.contextPath}/tiaoZhuanYgAddJsp'" class="btn btn-success">添加</button></span>
         </div>
     </div>
 </header>
@@ -190,14 +190,14 @@
                             $('#name2').val(name);
                         }
                     </script>
-                    <form action="/deleteById" method="post">
+                    <form action="${pageContext.request.contextPath}/deleteById" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
                                 <jsp:include page="deleteById.jsp"></jsp:include>
                             </ul>
                         </div>
                     </form>
-                    <form action="/ygUpdateIng" method="post">
+                    <form action="${pageContext.request.contextPath}/ygUpdateIng" method="post">
                         <div class="container mt-3">
                             <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
                                 <jsp:include page="UpdateTan.jsp"></jsp:include>

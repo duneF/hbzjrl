@@ -6,8 +6,8 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/stvle.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
@@ -73,27 +73,27 @@
     <div class="menu">
         <ul>
             <li>
-                <a href="/ygShowAll">
+                <a href="${pageContext.request.contextPath}/ygShowAll">
                     <i class="fa fa-home fa-lg"></i>
                     <span class="nav-text">首页</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-user fa-lg"></i>
-                    <span class="nav-text">登录</span>
+                    <span class="nav-text">财务</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-envelope-o fa-lg"></i>
-                    <span class="nav-text">联系</span>
+                    <span class="nav-text">待定</span>
                 </a>
             </li>
             <li>
-                <a href=" ">
+                <a href="${pageContext.request.contextPath}/">
                     <i class="fa fa-heart-o fa-lg"></i>
-                    <span class="nav-text">收藏</span>
+                    <span class="nav-text">待定</span>
                 </a>
             </li>
             <li></li>
@@ -109,7 +109,7 @@
     <div class="px-3 py-2 border-bottom mb-3">
         <div>
            <span style="float: right">
-               <button onClick="window.location.href='/tiaoZhuanYgAddShouDong'"
+               <button onClick="window.location.href='${pageContext.request.contextPath}/tiaoZhuanYgAddShouDong'"
                        class="btn btn-primary">手动添加员工信息</button>
            </span>
         </div>
@@ -142,7 +142,7 @@
     }
 </style>
 
-<form action="/addYgTuPian" method="post" enctype="multipart/form-data">
+<form action="${pageContext.request.contextPath}/addYgTuPian" method="post" enctype="multipart/form-data">
     <div class="addHuiXian">
         <!-- 文件选择框 默认关闭 点击图片后调出 -->
         <input type="file" name="file" id="currImg"   accept="image/jpeg, image/png, image/jpg" style="display: none;"/>
@@ -160,7 +160,7 @@
                 <td colspan="2">
                     <div class="addHuiXian">
                         <!-- 把图片当作按钮，点击后调出文件选择框 -->
-                        <img id="imgBtn"   src="img/2.jpg" width="500px" height="auto"  style="margin-top:1vh; background: blue">
+                        <img id="imgBtn"   src="${pageContext.request.contextPath}" width="500px" height="auto"  style="margin-top:1vh; background: blue">
                     </div>
 
                 </td>
