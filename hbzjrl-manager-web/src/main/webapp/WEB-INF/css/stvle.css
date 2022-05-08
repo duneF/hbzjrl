@@ -13,7 +13,7 @@ body {
 }
 
 body {
-    background: url(/image/bg.png) 50% / cover no-repeat;
+    background: url(../image/bg.png) 50% / cover no-repeat;
 }
 
 .menu-wrap {

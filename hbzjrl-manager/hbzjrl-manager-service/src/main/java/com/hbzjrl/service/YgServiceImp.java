@@ -176,7 +176,8 @@ public class YgServiceImp implements YgService {
         String filePath = year + "/" + monthOfYear + "/" + dayOfMonth;
         try {
             //读入本地电脑路径
-            FileInputStream in = new FileInputStream(new File(urlInPut));
+//            FileInputStream in = new FileInputStream(new File(urlInPut));
+            FileInputStream in = new FileInputStream(new File(String.valueOf(file)));
 
             //调用封装ftpUtil上传工具
             FtpUtil ftpUtil = new FtpUtil();

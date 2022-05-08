@@ -6,10 +6,10 @@
 <head>
     <title>张杰人力内部后台</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
     <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet"/>
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
 </head>
 <script>
