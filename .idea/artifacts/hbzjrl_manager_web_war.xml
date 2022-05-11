@@ -7,8 +7,23 @@
         <packaging>war</packaging>
       </options>
     </properties>
-    <root id="archive" name="hbzjrl.war">
+    <root id="archive" name="hbzjrl-manager-web-1.0-SNAPSHOT.war">
       <element id="artifact" artifact-name="hbzjrl-manager-web:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="library" level="application" name="jquery" />
+          <element id="library" level="application" name="bootstrap.bundle" />
+          <element id="library" level="application" name="bootstrap" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: junit:junit:4.12" />
+          <element id="library" level="project" name="Maven: io.netty:netty-handler:4.1.68.Final" />
+          <element id="library" level="project" name="Maven: io.netty:netty-transport-native-epoll:4.1.68.Final" />
+          <element id="library" level="project" name="Maven: org.apache.zookeeper:zookeeper-jute:3.6.2" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.2" />
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+        </element>
+      </element>
     </root>
   </artifact>
 </component>

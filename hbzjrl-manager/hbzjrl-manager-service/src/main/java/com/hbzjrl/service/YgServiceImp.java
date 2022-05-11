@@ -14,8 +14,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.math.BigInteger;
+import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -155,7 +157,7 @@ public class YgServiceImp implements YgService {
     }
 
     @Override
-    public void addYgTuPian(YgPojo ygPojo, MultipartFile file) throws IOException {
+    public void addYgTuPian(YgPojo ygPojo, MultipartFile file,HttpServletRequest request) throws IOException {
        InputStream inp= file.getInputStream();
         //获取文件名
         String filename = file.getOriginalFilename();
@@ -171,18 +173,24 @@ public class YgServiceImp implements YgService {
         String newImageName = "" + year + monthOfYear + dayOfMonth + millis + suffixName;
         //等待优化
         //先把磁盘固定文件夹写死,再加图片Old名字传给上传util的new file参数
+
         String urlInPut = "\\E:\\image\\" + filename;
         //生成的日期加上"/"用作ftp服务器按日期排列的路径
         String filePath = year + "/" + monthOfYear + "/" + dayOfMonth;
+        String realPath1 = request.getServletContext().getRealPath("/");
+
+        System.out.println("进入try之前"+filePath);
+
+
         try {
             //读入本地电脑路径
-//            FileInputStream in = new FileInputStream(new File(urlInPut));
-            FileInputStream in = new FileInputStream(new File(String.valueOf(file)));
+            FileInputStream in = new FileInputStream(new File(realPath1,filename));
+            System.out.println("进入try 开始new File in");
 
             //调用封装ftpUtil上传工具
             FtpUtil ftpUtil = new FtpUtil();
             //调用上传工具上传方法,读取properties文件引入的参数@Value("${FTP_ADDRESS}") private String FTP_ADDRESS;
-            ftpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, filePath, newImageName, inp);
+            ftpUtil.uploadFile(FTP_ADDRESS, FTP_PORT, FTP_USERNAME, FTP_PASSWORD, FTP_BASE_PATH, filePath, newImageName, in);
             //拼接公网图片路径等待传入OCR识别
             String ORCURL = IMAGE_BASE_URL + filePath + "/" + newImageName;
             //创建OCR对象

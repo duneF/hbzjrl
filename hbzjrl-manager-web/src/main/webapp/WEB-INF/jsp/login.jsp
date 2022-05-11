@@ -1,14 +1,19 @@
- <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <html>
 <head>
     <%--    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>--%>
     <title>张杰人力管理系统</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/login.css"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <!--完整显示-->
-        <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+
+    <!--完整显示-->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 <body>
 <div class="box">
@@ -20,14 +25,16 @@
         </div>
         <div class="login-content ">
             <div class="form">
-                <form id="formlogin" class="form-horizontal was-validated" action="${pageContext.request.contextPath}/hbzjrl/login" method="post">
+                <form id="formlogin" class="form-horizontal was-validated"
+                      action="${pageContext.request.contextPath}/login" method="post">
                     <!-- 用户名输入 -->
                     <div class="form-group">
                         <div class="col-xs-10 col-xs-offset-1">
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-user"></span></span>
-                                <input type="text" id="loginname" name="username" class="form-control" placeholder="用户名" required>
+                                <input type="text" id="loginname" name="username" class="form-control" placeholder="用户名"
+                                       required>
                             </div>
                         </div>
                     </div>
@@ -38,7 +45,7 @@
                             <div class="input-group">
 									<span class="input-group-addon"><span
                                             class="glyphicon glyphicon-lock"></span></span>
-                                <input type="password" id="nloginpwd"   name="password" class="form-control"
+                                <input type="password" id="nloginpwd" name="password" class="form-control"
                                        placeholder="密码" required>
                             </div>
                         </div>

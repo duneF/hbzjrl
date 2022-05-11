@@ -179,8 +179,8 @@ public class YgShow {
 
     //图片自动添加员工
     @RequestMapping("/addYgTuPian")
-    public String addYgTuPian(YgPojo ygPojo, @RequestParam(value = "file", required = false) MultipartFile file) throws IOException {
-        ygService.addYgTuPian(ygPojo,file);
+    public String addYgTuPian(YgPojo ygPojo, @RequestParam(value = "file", required = false) MultipartFile file,HttpServletRequest request) throws IOException {
+        ygService.addYgTuPian(ygPojo,file,request);
         return "/ygAddYeMian";
     }
 }

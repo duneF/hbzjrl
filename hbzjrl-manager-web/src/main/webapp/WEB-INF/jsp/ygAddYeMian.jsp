@@ -5,7 +5,10 @@
 <html>
 <head>
     <title>张杰人力内部后台</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
@@ -67,6 +70,22 @@
             $('#imgBtn').attr('src', imgSrc);
         });
     })
+    function coursePptChange(){
+        var MyTest = document.getElementById("file").files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(MyTest);
+        reader.onload = function(theFile) {
+            var image = new Image();
+            image.src = theFile.target.result;
+            image.onload = function(){
+                if(this.width > 2208 || this.height >1242){
+                    $.messager.alert("系统提示信息","ppt图片的最大宽度为 2208 像素，最大高度为 1242 像素！","info");
+                    $("#file").val("");
+                    return false;
+                }
+            };
+        };
+    }
 </script>
 <body>
 <nav class="menu-wrap">
@@ -145,7 +164,7 @@
 <form action="${pageContext.request.contextPath}/addYgTuPian" method="post" enctype="multipart/form-data">
     <div class="addHuiXian">
         <!-- 文件选择框 默认关闭 点击图片后调出 -->
-        <input type="file" name="file" id="currImg"   accept="image/jpeg, image/png, image/jpg" style="display: none;"/>
+        <input type="file" name="file" id="currImg" οnchange="coursePptChange()"  accept="image/jpeg, image/png, image/jpg" style="display: none;"/>
     </div>
     <div class="add">
 

@@ -5,7 +5,10 @@
 <html>
 <head>
     <title>张杰人力内部后台</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
     <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.6.0/jquery.js"></script>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/stvle.css">
@@ -213,7 +216,7 @@
                 <form form-horizontal action="${pageContext.request.contextPath}/ygShowAll" method="post">
                     <div class="container mt-3">
                         <ul class="pagination pagination-lg justify-content-center" style="margin:1% 0">
-                            <jsp:include page="${pageContext.request.contextPath}/hbzjrl/WEB-INF/page/pages2.jsp"></jsp:include>
+                            <jsp:include page="${pageContext.request.contextPath}/WEB-INF/page/pages2.jsp"></jsp:include>
                         </ul>
                     </div>
                 </form>
